@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SPTR scenario="scenario1" version="1.0">
+	<Parametres>
+		<Simulation>4800</Simulation>
+		<Communication>1</Communication>
+		<AutoReparation>4</AutoReparation>
+		<Collision>60</Collision>
+		<Echelle>256</Echelle>
+		<XDepart>13</XDepart>
+		<YDepart>17</YDepart>
+		<XArrivee>26</XArrivee>
+		<YArrivee>17</YArrivee>
+		<Vitesse>5</Vitesse>
+		<Acceleration>2</Acceleration>
+		<Consommation>32</Consommation>
+		<FeuJaune>2</FeuJaune>
+		<TemperatureMin>10</TemperatureMin>
+		<TemperatureMax>25</TemperatureMax>
+		<Strategie>unique</Strategie>
+	</Parametres>
+	<Routes>
+		<Route numero="1">
+			<XDebut>10</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>3</XFin>
+			<YFin>10</YFin>
+			<Vitesse>4</Vitesse>
+		</Route>
+		<Route numero="2">
+			<XDebut>3</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>3</XFin>
+			<YFin>17</YFin>
+			<Vitesse>4</Vitesse>
+		</Route>
+		<Route numero="3">
+			<XDebut>3</XDebut>
+			<YDebut>17</YDebut>
+			<XFin>10</XFin>
+			<YFin>17</YFin>
+			<Vitesse>2</Vitesse>
+		</Route>
+		<Route numero="4">
+			<XDebut>10</XDebut>
+			<YDebut>17</YDebut>
+			<XFin>10</XFin>
+			<YFin>24</YFin>
+			<Vitesse>2</Vitesse>
+		</Route>
+		<Route numero="5">
+			<XDebut>10</XDebut>
+			<YDebut>24</YDebut>
+			<XFin>3</XFin>
+			<YFin>24</YFin>
+			<Vitesse>4</Vitesse>
+		</Route>
+		<Route numero="6">
+			<XDebut>10</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>10</XFin>
+			<YFin>17</YFin>
+			<Vitesse>2</Vitesse>
+		</Route>
+		<Route numero="7">
+			<XDebut>10</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>17</XFin>
+			<YFin>10</YFin>
+			<Vitesse>4</Vitesse>
+		</Route>
+		<Route numero="8">
+			<XDebut>17</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>17</XFin>
+			<YFin>17</YFin>
+			<Vitesse>2</Vitesse>
+		</Route>
+		<Route numero="9">
+			<XDebut>17</XDebut>
+			<YDebut>17</YDebut>
+			<XFin>10</XFin>
+			<YFin>17</YFin>
+			<Vitesse>2</Vitesse>
+		</Route>
+		<Route numero="10">
+			<XDebut>17</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>23</XFin>
+			<YFin>10</YFin>
+			<Vitesse>1</Vitesse>
+		</Route>
+		<Route numero="11">
+			<XDebut>20</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>20</XFin>
+			<YFin>24</YFin>
+			<Vitesse>1</Vitesse>
+		</Route>
+		<Route numero="12">
+			<XDebut>23</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>23</XFin>
+			<YFin>24</YFin>
+			<Vitesse>1</Vitesse>
+		</Route>
+		<Route numero="13">
+			<XDebut>23</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>30</XFin>
+			<YFin>10</YFin>
+			<Vitesse>1</Vitesse>
+		</Route>
+		<Route numero="14">
+			<XDebut>30</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>30</XFin>
+			<YFin>17</YFin>
+			<Vitesse>1</Vitesse>
+		</Route>
+		<Route numero="15">
+			<XDebut>30</XDebut>
+			<YDebut>17</YDebut>
+			<XFin>23</XFin>
+			<YFin>17</YFin>
+			<Vitesse>2</Vitesse>
+		</Route>
+		<Route numero="16">
+			<XDebut>30</XDebut>
+			<YDebut>17</YDebut>
+			<XFin>30</XFin>
+			<YFin>24</YFin>
+			<Vitesse>4</Vitesse>
+		</Route>
+		<Route numero="17">
+			<XDebut>30</XDebut>
+			<YDebut>24</YDebut>
+			<XFin>10</XFin>
+			<YFin>24</YFin>
+			<Vitesse>4</Vitesse>
+		</Route>
+	</Routes>
+	<Feux>
+		<Feu numero="1">
+			<CoordonneeX>3</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>E</Position>
+			<Duree>5</Duree>
+		</Feu>
+		<Feu numero="2">
+			<CoordonneeX>3</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>S</Position>
+			<Duree>5</Duree>
+		</Feu>
+		<Feu numero="3">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>E</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="4">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>O</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="5">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>S</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="6">
+			<CoordonneeX>17</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>E</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="7">
+			<CoordonneeX>17</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>O</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="8">
+			<CoordonneeX>17</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>S</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="9">
+			<CoordonneeX>20</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>E</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="10">
+			<CoordonneeX>20</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>O</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="11">
+			<CoordonneeX>20</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>S</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="12">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>E</Position>
+			<Duree>9</Duree>
+		</Feu>
+		<Feu numero="13">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>O</Position>
+			<Duree>9</Duree>
+		</Feu>
+		<Feu numero="14">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>S</Position>
+			<Duree>9</Duree>
+		</Feu>
+		<Feu numero="15">
+			<CoordonneeX>30</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>O</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="16">
+			<CoordonneeX>30</CoordonneeX>
+			<CoordonneeY>10</CoordonneeY>
+			<Position>S</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="17">
+			<CoordonneeX>3</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>E</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="18">
+			<CoordonneeX>3</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>N</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="19">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>E</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="20">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>N</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="21">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>O</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="22">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>S</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="23">
+			<CoordonneeX>17</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>N</Position>
+			<Duree>5</Duree>
+		</Feu>
+		<Feu numero="24">
+			<CoordonneeX>17</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>O</Position>
+			<Duree>5</Duree>
+		</Feu>
+		<Feu numero="25">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>E</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="26">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>N</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="27">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>S</Position>
+			<Duree>6</Duree>
+		</Feu>
+		<Feu numero="28">
+			<CoordonneeX>30</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>N</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="29">
+			<CoordonneeX>30</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>O</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="30">
+			<CoordonneeX>30</CoordonneeX>
+			<CoordonneeY>17</CoordonneeY>
+			<Position>S</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="31">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>E</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="32">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>N</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="33">
+			<CoordonneeX>10</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>O</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="34">
+			<CoordonneeX>20</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>E</Position>
+			<Duree>9</Duree>
+		</Feu>
+		<Feu numero="35">
+			<CoordonneeX>20</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>N</Position>
+			<Duree>9</Duree>
+		</Feu>
+		<Feu numero="36">
+			<CoordonneeX>20</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>O</Position>
+			<Duree>9</Duree>
+		</Feu>
+		<Feu numero="37">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>E</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="38">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>N</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="39">
+			<CoordonneeX>23</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>O</Position>
+			<Duree>8</Duree>
+		</Feu>
+		<Feu numero="40">
+			<CoordonneeX>30</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>N</Position>
+			<Duree>7</Duree>
+		</Feu>
+		<Feu numero="41">
+			<CoordonneeX>30</CoordonneeX>
+			<CoordonneeY>24</CoordonneeY>
+			<Position>O</Position>
+			<Duree>7</Duree>
+		</Feu>
+	</Feux>
+	<Trafic>
+		<Parcours numero="1">
+			<XDebut>10</XDebut>
+			<YDebut>17</YDebut>
+			<XFin>3</XFin>
+			<YFin>17</YFin>
+			<Vitesse>6</Vitesse>
+			<Periode>80</Periode>
+			<Phase>60</Phase>
+		</Parcours>
+		<Parcours numero="2">
+			<XDebut>23</XDebut>
+			<YDebut>10</YDebut>
+			<XFin>23</XFin>
+			<YFin>17</YFin>
+			<Vitesse>2</Vitesse>
+			<Periode>60</Periode>
+			<Phase>20</Phase>
+		</Parcours>
+		<Parcours numero="3">
+			<XDebut>23</XDebut>
+			<YDebut>24</YDebut>
+			<XFin>30</XFin>
+			<YFin>24</YFin>
+			<Vitesse>6</Vitesse>
+			<Periode>40</Periode>
+			<Phase>30</Phase>
+		</Parcours>
+	</Trafic>
+	<Temperature>20</Temperature>
+	<Bris>
+		<Periode>80</Periode>
+		<Phase>60</Phase>
+	</Bris>
+	<Conducteur>
+		<Periode>48</Periode>
+		<Phase>15</Phase>
+	</Conducteur>
+</SPTR>

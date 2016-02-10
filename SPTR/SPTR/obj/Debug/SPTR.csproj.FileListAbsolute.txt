@@ -1,0 +1,9 @@
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\bin\Debug\SPTR.exe.config
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\bin\Debug\SPTR.exe
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\bin\Debug\SPTR.pdb
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\obj\Debug\SPTR.csprojResolveAssemblyReference.cache
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\obj\Debug\SPTR.Properties.Resources.resources
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\obj\Debug\SPTR.csproj.GenerateResource.Cache
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\obj\Debug\SPTR.exe
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\obj\Debug\SPTR.pdb
+C:\Users\rem54\Documents\Visual Studio 2015\Projects\SPTR\SPTR\obj\Debug\SPTR.Form1.resources
