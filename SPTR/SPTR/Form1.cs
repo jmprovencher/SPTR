@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
+
 
 namespace SPTR
 {
@@ -18,30 +17,23 @@ namespace SPTR
         public Form1()
         {
             InitializeComponent();
+            s = new SimulationXMLParser("sptr-scenario.xml").getSimulationFromXML();
             
-            System.IO.StreamReader stream = new System.IO.StreamReader("sptr-scenario.xml");
-            using (XmlReader reader = XmlReader.Create(stream))
-            {
-                reader.MoveToContent();
-                switch (reader.Name)
-                {
-                    case "SPTR":
-                        s = (Simulation)(new XmlSerializer(typeof(Simulation)).Deserialize(reader));
-                        break;
-                    default:
-                        throw new NotSupportedException("Unexpected: " + reader.Name);
-                }
-
-            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            foreach(Route r in s.ListeRoutes)
-            {
-                Console.WriteLine(r.Numero);
+            foreach (Route r in s.ListeRoutes) { 
+                listBox1.Items.Add("Route "+r.Numero+", vitesse: "+r.Vitesse);
             }
         }
         public Simulation s;
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
+    
 }
