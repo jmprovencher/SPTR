@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    class Temperature
+    public partial class Temperature
     {
         public Temperature()
         {
 
         }
 
-        private int Valeur{get; set;}
+        public int Valeur{get; set;}
     }
 }

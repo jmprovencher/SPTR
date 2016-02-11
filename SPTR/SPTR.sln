@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPTR", "SPTR\SPTR.csproj", "{766C5CA1-1D62-4268-9E51-7AD89781A252}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{405C901B-22BA-424E-BBBA-FC8F73E39480}"
+	ProjectSection(SolutionItems) = preProject
+		sptr-scenario.xml = sptr-scenario.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    class Bris
+    public partial class Bris
     {
         public Bris() { }
 
-        private int Periode { get; set; }
-        private int Phase { get; set; }
+        public int Periode { get; set; }
+        public int Phase { get; set; }
     }
 
 

@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SPTR
 {
-    class Route
+    public partial class Route
     {
-        public Route(int arg_numero)
+        public Route()
         {
-            Numero = arg_numero;
         }
-        public int Numero;
+
+        [XmlAttribute("numero")]
+        public int Numero { get; set; }
         public int XDebut { get; set; }
         public int YDebut { get; set; }
         public int XFin { get; set; }
@@ -20,3 +22,4 @@ namespace SPTR
         public int Vitesse { get; set; }
     }
 }
+

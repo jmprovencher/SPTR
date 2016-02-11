@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    class Parcours
+    public partial class Parcours
     {
         public Parcours()
         {
 
         }
-        private int XDebut { get; set; }
-        private int YDebut { get; set; }
-        private int XFin { get; set; }
-        private int YFin { get; set; }
-        private int Vitesse { get; set; }
-        private int Periode { get; set; }
-        private int Phase { get; set; }
+        public int XDebut { get; set; }
+        public int YDebut { get; set; }
+        public int XFin { get; set; }
+        public int YFin { get; set; }
+        public int Vitesse { get; set; }
+        public int Periode { get; set; }
+        public int Phase { get; set; }
     }
 }

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    class Feu
+    public partial class Feu
     {
         public Feu()
         {
 
         }
 
-        private int CoordonneeX { get; set; }
-        private int CoordonneeY { get; set; }
-        private int Position { get; set; }
-        private int Duree { get; set; }
+        public int CoordonneeX { get; set; }
+        public int CoordonneeY { get; set; }
+        public string Position { get; set; }
+        public int Duree { get; set; }
 
     }
 }

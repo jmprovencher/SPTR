@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    class Conducteur
+    public partial class Conducteur
     {
         public Conducteur() {
 
         }
 
-        private int Periode { get; set; }
-        private int Phase { get; set; }
+        public int Periode { get; set; }
+        public int Phase { get; set; }
     }
 
    
