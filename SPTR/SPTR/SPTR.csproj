@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Display.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Objets XML\Bris.cs" />
     <Compile Include="Objets XML\Simulation.cs" />
     <Compile Include="Objets XML\Conducteur.cs" />
