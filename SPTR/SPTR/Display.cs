@@ -49,17 +49,32 @@ namespace SPTR
                         (h / 2) - ((h / 2 - centerPositionY) * (scale)));
             g.ScaleTransform(scale, scale);
             // Create string to draw.
-            String drawString = "SPTR CANCER";
+            String drawString = "SPTR";
 
             // Create font and brush.
             Font drawFont = new Font("Arial", 30);
             SolidBrush drawBrush = new SolidBrush(Color.DarkGray);
 
             // Create point for upper-left corner of drawing.
-            PointF drawPoint = new PointF(50, 50);
+            PointF drawPoint = new PointF(0, 0);
 
             // Draw string to screen.
             e.Graphics.DrawString(drawString, drawFont, drawBrush, drawPoint);
+
+            //Make a 32x32 grid
+            Pen p = new Pen(Color.FromArgb(255, 0, 0, 0));
+            int numOfCells = 32;
+            int cellSize = 10;
+
+            for (int y = 0; y < numOfCells + 1; ++y)
+            {
+                g.DrawLine(p, 0, y * cellSize, numOfCells * cellSize, y * cellSize);
+            }
+
+            for (int x = 0; x < numOfCells + 1; ++x)
+            {
+                g.DrawLine(p, x * cellSize, 0, x * cellSize, numOfCells * cellSize);
+            }
         }
 
         private void display_MouseDown(object sender, MouseEventArgs e)

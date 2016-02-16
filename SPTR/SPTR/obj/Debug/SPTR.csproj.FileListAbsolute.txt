@@ -16,3 +16,12 @@ C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\obj\Debug\SPTR.Properties.Resour
 C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\obj\Debug\SPTR.csproj.GenerateResource.Cache
 C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\bin\Debug\SPTR.exe
 C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\bin\Debug\SPTR.pdb
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\bin\Debug\SPTR.exe.config
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.exe
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.pdb
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\bin\Debug\SPTR.exe
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\bin\Debug\SPTR.pdb
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.csprojResolveAssemblyReference.cache
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.Form1.resources
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.Properties.Resources.resources
+C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.csproj.GenerateResource.Cache
