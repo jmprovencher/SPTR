@@ -18,7 +18,6 @@ namespace SPTR
         public Simulation getSimulationFromXML()
         {
             System.IO.StreamReader stream = new System.IO.StreamReader(XmlPath);
-            Simulation s;
             using (XmlReader reader = XmlReader.Create(stream))
             {
                 reader.MoveToContent();
@@ -26,7 +25,6 @@ namespace SPTR
                 {
                     case "SPTR":
                         return (Simulation)(new XmlSerializer(typeof(Simulation)).Deserialize(reader));
-                        break;
                     default:
                         throw new NotSupportedException("Unexpected: " + reader.Name);
                 }

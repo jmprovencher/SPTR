@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asphalte.cs" />
+    <Compile Include="Cellule.cs" />
+    <Compile Include="Grille.cs" />
     <Compile Include="Display.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -66,6 +69,8 @@
     <Compile Include="Objets XML\Route.cs" />
     <Compile Include="Objets XML\Temperature.cs" />
     <Compile Include="SimulationXMLParser.cs" />
+    <Compile Include="Vide.cs" />
+    <Compile Include="Voiture.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

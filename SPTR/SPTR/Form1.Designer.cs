@@ -37,6 +37,7 @@
             this.display1.Name = "display1";
             this.display1.Size = new System.Drawing.Size(713, 526);
             this.display1.TabIndex = 1;
+            this.display1.Paint += new System.Windows.Forms.PaintEventHandler(this.display1_Paint);
             // 
             // Form1
             // 

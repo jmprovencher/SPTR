@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace SPTR
     {
         public Route()
         {
+
         }
 
         [XmlAttribute("numero")]
@@ -20,6 +22,8 @@ namespace SPTR
         public int XFin { get; set; }
         public int YFin { get; set; }
         public int Vitesse { get; set; }
+
+
     }
 }
 

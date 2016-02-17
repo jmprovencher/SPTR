@@ -22,19 +22,19 @@ namespace SPTR
             InitializeComponent();
             
             s = new SimulationXMLParser("sptr-scenario.xml").getSimulationFromXML();
+            s.RemplirGrille();
             
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            display1.BackColor = Color.Green;
-            foreach (Route r in s.ListeRoutes) { 
-                
-            }
+
         }
 
-
- 
+        private void display1_Paint(object sender, PaintEventArgs e)
+        {
+            s.GrilleSimulation.paint(e.Graphics);
+        }
     }
 
     

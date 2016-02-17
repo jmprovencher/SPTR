@@ -10,7 +10,7 @@ namespace SPTR
     {
         public Parcours()
         {
-
+            ListeVoitures = new List<Voiture>();
         }
         public int XDebut { get; set; }
         public int YDebut { get; set; }
@@ -19,5 +19,7 @@ namespace SPTR
         public int Vitesse { get; set; }
         public int Periode { get; set; }
         public int Phase { get; set; }
+
+        public List<Voiture> ListeVoitures;
     }
 }
