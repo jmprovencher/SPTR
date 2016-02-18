@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public partial class Parametres
+    public class Parametres
     {
         public Parametres()
         {

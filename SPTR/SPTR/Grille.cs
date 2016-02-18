@@ -7,48 +7,69 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public partial class Grille
+    public class Grille
     {
-        public Grille(int nbCellules, int tailleCellules)
+        public Grille(int nbCellules, int tailleCellules, int origineX, int origineY)
         {
             NbCellules = nbCellules;
             TailleCellules = tailleCellules;
             ListesCellules = new List<List<Cellule>>();
+            OrigineX = origineX;
+            OrigineY = origineY;
             for (int i = 0; i< NbCellules; i++)
             {
                 ListesCellules.Add( new List<Cellule>());
                 for (int j = 0; j < NbCellules; j++)
                 {
-                    ListesCellules[i].Add( new Vide(i,j));
+                    if (i == 0 || j == 0)
+                    {
+                        ListesCellules[i].Add(new Numero(i + OrigineX, j + OrigineY, TailleCellules));
+                        continue;
+                    }
+                    ListesCellules[i].Add(new Cellule(i+OrigineX,j+OrigineY, TailleCellules));
                 }
             }
+        }
+
+        public Cellule getCellule(int i, int j)
+        {
+            return ListesCellules[i - OrigineX][j-OrigineY];
+        }
+        
+        public void setCellule(int i, int j, Cellule c)
+        {
+            ListesCellules[i - OrigineX][j - OrigineY] = c;
         }
 
         public void paint(Graphics g)
         {
-            //Make a 32x32 grid
-            Pen p = new Pen(Color.FromArgb(255, 0, 0, 0));
-
-            for (int y = 1; y <= NbCellules + 1; ++y)
-            {
-                g.DrawLine(p, TailleCellules, y * TailleCellules, (NbCellules+1) * TailleCellules, y * TailleCellules);
-            }
-
-            for (int x = 1; x <= NbCellules + 1; ++x)
-            {
-                g.DrawLine(p, x * TailleCellules, TailleCellules, x * TailleCellules, (NbCellules+1) * TailleCellules);
-            }
             foreach (List<Cellule> l in ListesCellules)
             {
-                foreach(Cellule c in l)
+                foreach (Cellule c in l)
                 {
                     c.paint(g);
                 }
             }
+
+            //Make a 32x32 grid
+            Pen p = new Pen(Color.FromArgb(255, 0, 0, 0));
+
+            for (int y = OrigineY; y <= NbCellules + OrigineY; ++y)
+            {
+                g.DrawLine(p, OrigineY*TailleCellules, y * TailleCellules, (NbCellules+OrigineY) * TailleCellules, y * TailleCellules);
+            }
+
+            for (int x = OrigineX; x <= NbCellules + OrigineX; ++x)
+            {
+                g.DrawLine(p, x * TailleCellules, OrigineX*TailleCellules, x * TailleCellules, (NbCellules+OrigineX) * TailleCellules);
+            }
+            
         }
 
-        public List<List<Cellule>> ListesCellules; 
+        private List<List<Cellule>> ListesCellules; 
         public int NbCellules { get; set; }
         public int TailleCellules { get; set; }
+        public int OrigineX { get; set; }
+        public int OrigineY { get; set; }
     }
 }

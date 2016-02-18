@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SPTR
 {
-    public partial class Display : Panel
+    public class Display : Panel
     {
         public float scale = 1;
         public int centerPositionX = 0;

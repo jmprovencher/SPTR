@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public partial class Temperature
+    public class Temperature
     {
         public Temperature()
         {

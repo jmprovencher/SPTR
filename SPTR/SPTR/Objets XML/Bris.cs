@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public partial class Bris
+    public class Bris
     {
         public Bris() { }
 

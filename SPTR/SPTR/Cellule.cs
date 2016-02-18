@@ -7,18 +7,29 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public interface Cellule
+    public class Cellule
     {
-        void paint(Graphics g);
+        public Cellule(int x, int y, int tailleCellule)
+        {
+            CoordonneeX = x;
+            CoordonneeY = y;
+            TailleCellule = tailleCellule;
+        }
+        virtual public void paint(Graphics g) {
+            SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.DarkGreen);
+            g.FillRectangle(myBrush, new Rectangle((CoordonneeX) * TailleCellule, (CoordonneeY ) * TailleCellule, TailleCellule, TailleCellule));
+        }
 
-        int CoordonneeX
+        public int TailleCellule { get; set; }
+
+        virtual public int CoordonneeX
         {
             get;
 
             set;
         }
 
-        int CoordonneeY
+        virtual public int CoordonneeY
         {
             get;
 

@@ -52,6 +52,7 @@
     <Compile Include="Display.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Numero.cs" />
     <Compile Include="Objets XML\Bris.cs" />
     <Compile Include="Objets XML\Simulation.cs" />
     <Compile Include="Objets XML\Conducteur.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="Objets XML\Route.cs" />
     <Compile Include="Objets XML\Temperature.cs" />
     <Compile Include="SimulationXMLParser.cs" />
-    <Compile Include="Vide.cs" />
     <Compile Include="Voiture.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

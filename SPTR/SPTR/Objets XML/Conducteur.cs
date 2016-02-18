@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public partial class Conducteur
+    public class Conducteur
     {
         public Conducteur() {
 

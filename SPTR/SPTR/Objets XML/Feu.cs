@@ -7,43 +7,48 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public partial class Feu : Cellule
+    public enum Couleur { Rouge, Jaune, Vert };
+
+    public class Feu : Cellule
     {
-        public Feu()
+        public Feu():base(0,0,0)
         {
-
+            // Constructor for the XML parser
         }
 
-        public void paint(Graphics g)
+        public Feu(int cell_size, Feu feu):base(feu.CoordonneeX, feu.CoordonneeY, cell_size)
         {
-            int offsetX = 0, offsetY = 0;
-            switch (Position)
-            {
-                case "N":
-                    offsetY = -1;
-                    offsetX = -1;
-                    break;
-                case "S":
-                    offsetY = 1;
-                    offsetX = 1;
-                    break;
-                case "E":
-                    offsetX = 1;
-                    offsetY =- 1;
-                    break;
-                case "O":
-                    offsetX = -1;
-                    offsetY = 1;
-                    break;
-            }
+            // Copy constructor to create the proper derived object from Cellule.
+            Position = feu.Position;
+            Duree = feu.Duree;
+            CouleurFeu = Couleur.Rouge;
+        }
+        
+        public override void paint(Graphics g)
+        {
+            //Console.WriteLine(CoordonneeX);
             SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
-            g.FillRectangle(myBrush, new Rectangle((CoordonneeX+offsetX)*20, (CoordonneeY+offsetY)*20, 20, 20));
+            if (CouleurFeu == Couleur.Jaune) { myBrush.Color = Color.Yellow; }
+            else if(CouleurFeu == Couleur.Vert) { myBrush.Color = Color.Green; }
+            g.FillRectangle(myBrush, new Rectangle((CoordonneeX)*TailleCellule, (CoordonneeY)* TailleCellule, TailleCellule, TailleCellule));
+            myBrush.Color = Color.Black;
+
+            // Create font and brush.
+            Font drawFont = new Font("Arial", (int)(TailleCellule*0.7));
+            SolidBrush drawBrush = new SolidBrush(Color.WhiteSmoke);
+
+            // Create point for upper-left corner of drawing.
+            PointF drawPoint = new PointF(CoordonneeX*TailleCellule, CoordonneeY*TailleCellule);
+            //Console.WriteLine("Writing: " + Position+" at:" +CoordonneeX+" , "+CoordonneeY);
+            // Draw string to screen.
+            g.DrawString(Position, drawFont, drawBrush, drawPoint);
         }
 
-        public int CoordonneeX { get; set; }
-        public int CoordonneeY { get; set; }
+        public override int CoordonneeX { get; set; }
+        public override int CoordonneeY { get; set; }
         public string Position { get; set; }
         public int Duree { get; set; }
+        public Couleur CouleurFeu{ get; set; }
 
     }
 }

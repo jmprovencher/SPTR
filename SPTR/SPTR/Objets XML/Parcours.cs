@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SPTR
 {
-    public partial class Parcours
+    public class Parcours
     {
         public Parcours()
         {
@@ -19,7 +20,7 @@ namespace SPTR
         public int Vitesse { get; set; }
         public int Periode { get; set; }
         public int Phase { get; set; }
-
+        [XmlIgnoreAttribute]
         public List<Voiture> ListeVoitures;
     }
 }

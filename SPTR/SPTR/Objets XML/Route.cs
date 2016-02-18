@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace SPTR
 {
-    public partial class Route
+    public class Route
     {
         public Route()
         {

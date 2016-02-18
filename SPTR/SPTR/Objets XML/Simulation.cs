@@ -17,7 +17,7 @@ namespace SPTR
             ListeRoutes = new List<Route>();
             ListeFeux = new List<Feu>();
             ListeParcours = new List<Parcours>();
-            GrilleSimulation = new Grille(32, 20);
+            GrilleSimulation = new Grille(33, 50, 0, 0);
         }
 
         public void RemplirGrille()
@@ -56,22 +56,25 @@ namespace SPTR
                         stopX = r.XDebut;
                     }
                 }
+                
                 for (int i = startX; i <= stopX; i++)
                 {
                     for (int j = startY; j <= stopY; j++)
                     {
-                        if (GrilleSimulation.ListesCellules[i][j].GetType() != typeof(Asphalte))
+                        if (GrilleSimulation.getCellule(i, j).GetType() != typeof(Asphalte))
                         {
-                            GrilleSimulation.ListesCellules[i][j] = (new Asphalte(i, j));
+                            GrilleSimulation.setCellule(i,j,new Asphalte(i, j, GrilleSimulation.TailleCellules));
                         }
-                        ((Asphalte)GrilleSimulation.ListesCellules[i][j]).ListeRoute.Add(r);
+                        ((Asphalte)GrilleSimulation.getCellule(i, j)).ListeRoute.Add(r);
 
                     }
                 }
+                
             }
-
-            foreach (Feu f in ListeFeux)
+            
+            for (int i = 0; i<ListeFeux.Count;i++)
             {
+                Feu f = ListeFeux[i];
                 int offsetX = 0, offsetY = 0;
                 switch (f.Position)
                 {
@@ -92,8 +95,13 @@ namespace SPTR
                         offsetY = 1;
                         break;
                 }
-                GrilleSimulation.ListesCellules[f.CoordonneeX + offsetX][f.CoordonneeY + offsetY] = f;
+                f.CoordonneeX += offsetX;
+                f.CoordonneeY += offsetY;
+                Feu nouveauFeu = new Feu(GrilleSimulation.TailleCellules, f);
+                GrilleSimulation.setCellule(f.CoordonneeX,f.CoordonneeY,  nouveauFeu);
+                ListeFeux[i] = nouveauFeu;
             }
+            
         }
 
         [XmlElement("Parametres")]

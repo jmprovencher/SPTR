@@ -7,30 +7,16 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    public partial class Voiture
+    public class Voiture: Cellule
     {
-        public Voiture()
+        public Voiture(int x, int y, int tailleCellule):base(x, y, tailleCellule)
         {
-
+            // load le PNG ici...
         }
 
-        public int CoordonneeX
+        public override void paint(Graphics g)
         {
-            get;
-
-            set;
-        }
-
-        public int CoordonneeY
-        {
-            get;
-
-            set;
-        }
-
-        public void paint(Graphics g)
-        {
-            
+            // en proportion avec tailleCellule
         }
     }
 }
