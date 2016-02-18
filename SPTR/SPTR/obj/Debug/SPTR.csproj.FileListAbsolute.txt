@@ -25,3 +25,12 @@ C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\
 C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.Form1.resources
 C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.Properties.Resources.resources
 C:\Users\jmprovencher\Documents\Université\Hiver 2016\SPTR\SPTR\SPTR\obj\Debug\SPTR.csproj.GenerateResource.Cache
+C:\Repos\SPTR\SPTR\SPTR\bin\Debug\SPTR.exe.config
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.exe
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.pdb
+C:\Repos\SPTR\SPTR\SPTR\bin\Debug\SPTR.exe
+C:\Repos\SPTR\SPTR\SPTR\bin\Debug\SPTR.pdb
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.csprojResolveAssemblyReference.cache
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.Form1.resources
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.Properties.Resources.resources
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.csproj.GenerateResource.Cache
