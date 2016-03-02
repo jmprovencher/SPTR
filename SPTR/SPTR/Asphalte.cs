@@ -17,11 +17,10 @@ namespace SPTR
         public override void paint(Graphics g)
         {
             SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.DarkGray);
-            g.FillRectangle(myBrush, new Rectangle(CoordonneeX * TailleCellule, CoordonneeY * TailleCellule, TailleCellule, TailleCellule));
+            g.FillRectangle(myBrush, new Rectangle(CoordonneeXEchelle, CoordonneeYEchelle, TailleCellule, TailleCellule));
         }
 
         public List<Route> ListeRoute;
-        public Voiture Voiture;
 
     }
 }

@@ -30,7 +30,7 @@ namespace SPTR
             SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
             if (CouleurFeu == Couleur.Jaune) { myBrush.Color = Color.Yellow; }
             else if(CouleurFeu == Couleur.Vert) { myBrush.Color = Color.Green; }
-            g.FillRectangle(myBrush, new Rectangle((CoordonneeX)*TailleCellule, (CoordonneeY)* TailleCellule, TailleCellule, TailleCellule));
+            g.FillRectangle(myBrush, new Rectangle(CoordonneeXEchelle, CoordonneeYEchelle, TailleCellule, TailleCellule));
             myBrush.Color = Color.Black;
 
             // Create font and brush.
@@ -38,7 +38,7 @@ namespace SPTR
             SolidBrush drawBrush = new SolidBrush(Color.WhiteSmoke);
 
             // Create point for upper-left corner of drawing.
-            PointF drawPoint = new PointF(CoordonneeX*TailleCellule, CoordonneeY*TailleCellule);
+            PointF drawPoint = new PointF(CoordonneeXEchelle, CoordonneeYEchelle);
             //Console.WriteLine("Writing: " + Position+" at:" +CoordonneeX+" , "+CoordonneeY);
             // Draw string to screen.
             g.DrawString(Position, drawFont, drawBrush, drawPoint);

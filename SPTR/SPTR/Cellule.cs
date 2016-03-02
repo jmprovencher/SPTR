@@ -17,7 +17,7 @@ namespace SPTR
         }
         virtual public void paint(Graphics g) {
             SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.DarkGreen);
-            g.FillRectangle(myBrush, new Rectangle((CoordonneeX) * TailleCellule, (CoordonneeY ) * TailleCellule, TailleCellule, TailleCellule));
+            g.FillRectangle(myBrush, new Rectangle(CoordonneeXEchelle, CoordonneeYEchelle, TailleCellule, TailleCellule));
         }
 
         public int TailleCellule { get; set; }
@@ -35,5 +35,17 @@ namespace SPTR
 
             set;
         }
+
+        virtual public int CoordonneeXEchelle
+        {
+            get { return CoordonneeX * TailleCellule; }
+        }
+
+        virtual public int CoordonneeYEchelle
+        {
+            get { return CoordonneeY * TailleCellule; }
+        }
+
     }
+
 }

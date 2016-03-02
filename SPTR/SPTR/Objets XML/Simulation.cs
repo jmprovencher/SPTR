@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace SPTR
 
         public void RemplirGrille()
         {
+            //Ajout des routes
             foreach (Route r in ListeRoutes)
             {
                 int startX = 0, startY = 0, stopX = 0, stopY = 0;
@@ -71,7 +73,7 @@ namespace SPTR
                 }
                 
             }
-            
+            // Ajout des feux
             for (int i = 0; i<ListeFeux.Count;i++)
             {
                 Feu f = ListeFeux[i];
@@ -101,7 +103,27 @@ namespace SPTR
                 GrilleSimulation.setCellule(f.CoordonneeX,f.CoordonneeY,  nouveauFeu);
                 ListeFeux[i] = nouveauFeu;
             }
+
+            //Ajout de la voiture
+            int voitureX = ParametresSimulation.XDepart;
+            int voitureY = ParametresSimulation.YDepart;
+
+            if (GrilleSimulation.getCellule(voitureX, voitureY).GetType() == typeof(Asphalte))
+            {
+                Asphalte start = (Asphalte)GrilleSimulation.getCellule(voitureX, voitureY);
+                Voiture voitureIntelligente = new Voiture(start.CoordonneeX, start.CoordonneeY, start.TailleCellule);
+                Voiture = voitureIntelligente;
+            }
             
+        }
+
+        public void paint(Graphics e)
+        {
+            GrilleSimulation.paint(e);
+            if (Voiture != null)
+            {
+                Voiture.paint(e);
+            }
         }
 
         [XmlElement("Parametres")]
@@ -116,12 +138,14 @@ namespace SPTR
         [XmlArrayItem("Parcours")]
         public List<Parcours> ListeParcours;
         [XmlElement("Temperature")]
-        public Temperature TemperatureSimulation;
+        public int TemperatureSimulation;
         [XmlElement("Bris")]
         public Bris BrisSimulation;
         [XmlElement("Conducteur")]
         public Conducteur ConducteurSimulation;
         [XmlIgnoreAttribute]
         public Grille GrilleSimulation;
+        [XmlIgnoreAttribute]
+        public Voiture Voiture;
     }
 }

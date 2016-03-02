@@ -34,3 +34,4 @@ C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.csprojResolveAssemblyReference.cache
 C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.Form1.resources
 C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.Properties.Resources.resources
 C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.csproj.GenerateResource.Cache
+C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\obj\Debug\SPTR.AboutBox1.resources

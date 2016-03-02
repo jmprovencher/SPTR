@@ -10,9 +10,9 @@ namespace SPTR
 {
     public class Display : Panel
     {
-        public float scale = 1;
-        public int centerPositionX = 0;
-        public int centerPositionY = 0;
+        public float scale = 0.6F;
+        public int centerPositionX = -160;
+        public int centerPositionY = -100;
         public bool left_click_hold = false;
         public int pressedX = 0;
         public int pressedY = 0;

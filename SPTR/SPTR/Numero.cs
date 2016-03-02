@@ -22,7 +22,7 @@ namespace SPTR
             SolidBrush drawBrush = new SolidBrush(Color.WhiteSmoke);
 
             // Create point for upper-left corner of drawing.
-            PointF drawPoint = new PointF(CoordonneeX * TailleCellule, CoordonneeY * TailleCellule);
+            PointF drawPoint = new PointF(CoordonneeXEchelle, CoordonneeYEchelle);
             //Console.WriteLine("Writing: " + Position+" at:" +CoordonneeX+" , "+CoordonneeY);
             // Draw string to screen.
             string drawString = "0";
