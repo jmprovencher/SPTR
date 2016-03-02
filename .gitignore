@@ -5,3 +5,5 @@ SPTR/SPTR/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 *.txt
 SPTR/SPTR/obj/Debug/SPTR.csproj.GenerateResource.Cache
 *.exe
+*.suo
+SPTR/.vs/SPTR/v14/.suo
