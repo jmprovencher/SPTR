@@ -55,7 +55,7 @@ namespace SPTR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void display1_Paint(object sender, PaintEventArgs e)
@@ -128,14 +128,15 @@ namespace SPTR
             {
                 s.ParametresSimulation.Strategie = "unique";
             }
+
+            s.Voiture.CoordonneeX = s.ParametresSimulation.XDepart;
+            s.Voiture.CoordonneeY = s.ParametresSimulation.YDepart;
+            updateText();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            resetParameters();
-        }
 
-        private void button1_Click_1(object sender, EventArgs e)
+
+        private void buttonAppliquer_Click(object sender, EventArgs e)
         {
             updateParameters();
         }
