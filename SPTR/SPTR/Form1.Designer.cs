@@ -124,6 +124,7 @@
             this.P6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1323,6 +1324,7 @@
             this.P6,
             this.P7,
             this.P8,
+            this.P9,
             this.P10,
             this.P11,
             this.P12,
@@ -1388,9 +1390,15 @@
             // 
             // P8
             // 
-            this.P8.HeaderText = "P9";
+            this.P8.HeaderText = "P8";
             this.P8.Name = "P8";
             this.P8.ReadOnly = true;
+            // 
+            // P9
+            // 
+            this.P9.HeaderText = "P9";
+            this.P9.Name = "P9";
+            this.P9.ReadOnly = true;
             // 
             // P10
             // 
@@ -1629,6 +1637,8 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.NumericUpDown UDProcesseurs;
         private System.Windows.Forms.DataGridView dataGridResultats;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button buttonAppliquer;
         private System.Windows.Forms.DataGridViewTextBoxColumn UT;
         private System.Windows.Forms.DataGridViewTextBoxColumn P1;
         private System.Windows.Forms.DataGridViewTextBoxColumn P2;
@@ -1638,12 +1648,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn P6;
         private System.Windows.Forms.DataGridViewTextBoxColumn P7;
         private System.Windows.Forms.DataGridViewTextBoxColumn P8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P9;
         private System.Windows.Forms.DataGridViewTextBoxColumn P10;
         private System.Windows.Forms.DataGridViewTextBoxColumn P11;
         private System.Windows.Forms.DataGridViewTextBoxColumn P12;
         private System.Windows.Forms.DataGridViewTextBoxColumn P13;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button buttonAppliquer;
     }
 }
 

@@ -75,6 +75,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Proc\P01.cs" />
+    <Compile Include="Proc\P02.cs" />
+    <Compile Include="Proc\P03.cs" />
+    <Compile Include="Proc\P04.cs" />
+    <Compile Include="Proc\P05.cs" />
+    <Compile Include="Proc\P06.cs" />
+    <Compile Include="Proc\P07.cs" />
+    <Compile Include="Proc\P08.cs" />
+    <Compile Include="Proc\P09.cs" />
+    <Compile Include="Proc\P10.cs" />
+    <Compile Include="Proc\P11.cs" />
+    <Compile Include="Proc\P12.cs" />
+    <Compile Include="Proc\P13.cs" />
+    <Compile Include="Proc\ProcessEnum.cs" />
+    <Compile Include="Res\R01.cs" />
+    <Compile Include="Res\R02.cs" />
+    <Compile Include="Res\R03.cs" />
+    <Compile Include="Res\R04.cs" />
+    <Compile Include="Res\R05.cs" />
+    <Compile Include="Res\R06.cs" />
+    <Compile Include="Res\R07.cs" />
+    <Compile Include="Res\R08.cs" />
+    <Compile Include="Res\R09.cs" />
+    <Compile Include="Res\R10.cs" />
+    <Compile Include="Res\R11.cs" />
+    <Compile Include="Res\R12.cs" />
     <Compile Include="À propos.cs">
       <SubType>Form</SubType>
     </Compile>

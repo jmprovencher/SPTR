@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SPTR.Proc;
 
 
 namespace SPTR
@@ -21,6 +22,24 @@ namespace SPTR
             InitializeComponent();
             s = new Simulation();// new SimulationXMLParser("sptr-scenario.xml").getSimulationFromXML();
             //s.RemplirGrille();
+        }
+
+        void initResultGrid()
+        {
+            dataGridResultats.Rows.Add(0,
+                                      Proc.P01.Instance.formatedProcessState,
+                                      Proc.P02.Instance.formatedProcessState,
+                                      Proc.P03.Instance.formatedProcessState,
+                                      Proc.P04.Instance.formatedProcessState,
+                                      Proc.P05.Instance.formatedProcessState,
+                                      Proc.P06.Instance.formatedProcessState,
+                                      Proc.P07.Instance.formatedProcessState,
+                                      Proc.P08.Instance.formatedProcessState,
+                                      Proc.P09.Instance.formatedProcessState,
+                                      Proc.P10.Instance.formatedProcessState,
+                                      Proc.P11.Instance.formatedProcessState,
+                                      Proc.P12.Instance.formatedProcessState,
+                                      Proc.P13.Instance.formatedProcessState);
         }
 
         void updateText()
@@ -55,13 +74,9 @@ namespace SPTR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // just for testing purpose
-            dataGridResultats.Rows.Add();
-            dataGridResultats.Rows[0].Cells[0].Value = 0;
-            for (int i = 1; i < dataGridResultats.ColumnCount; i++)
-            {
-                dataGridResultats.Rows[0].Cells[i].Value = "État P"+i+" ici";
-            }
+
+            initResultGrid();
+
         }
 
         private void display1_Paint(object sender, PaintEventArgs e)
