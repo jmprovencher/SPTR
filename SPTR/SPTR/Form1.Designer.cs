@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.demarrer = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonAppliquer = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.CBOrdonnancement = new System.Windows.Forms.ComboBox();
             this.CBInterconnexion = new System.Windows.Forms.ComboBox();
@@ -134,7 +135,6 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.display = new SPTR.Display();
-            this.buttonAppliquer = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -337,6 +337,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Paramètres";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonAppliquer
+            // 
+            this.buttonAppliquer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAppliquer.Location = new System.Drawing.Point(3, 423);
+            this.buttonAppliquer.Name = "buttonAppliquer";
+            this.buttonAppliquer.Size = new System.Drawing.Size(738, 23);
+            this.buttonAppliquer.TabIndex = 33;
+            this.buttonAppliquer.Text = "Appliquer";
+            this.buttonAppliquer.UseVisualStyleBackColor = true;
+            this.buttonAppliquer.Click += new System.EventHandler(this.buttonAppliquer_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -1464,17 +1475,6 @@
             this.display.Size = new System.Drawing.Size(582, 506);
             this.display.TabIndex = 1;
             this.display.Paint += new System.Windows.Forms.PaintEventHandler(this.display1_Paint);
-            // 
-            // buttonAppliquer
-            // 
-            this.buttonAppliquer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAppliquer.Location = new System.Drawing.Point(3, 423);
-            this.buttonAppliquer.Name = "buttonAppliquer";
-            this.buttonAppliquer.Size = new System.Drawing.Size(738, 23);
-            this.buttonAppliquer.TabIndex = 33;
-            this.buttonAppliquer.Text = "Appliquer";
-            this.buttonAppliquer.UseVisualStyleBackColor = true;
-            this.buttonAppliquer.Click += new System.EventHandler(this.buttonAppliquer_Click);
             // 
             // Form1
             // 

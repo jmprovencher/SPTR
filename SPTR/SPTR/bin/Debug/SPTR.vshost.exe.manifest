@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SPTR.exe" size="59824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SPTR.exe" size="60336">
       <assemblyIdentity name="SPTR" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TZ0+BdgVcWWUSmWMMh1b7I8SC1ciZMUQg0JBelsWvww=</dsig:DigestValue>
+        <dsig:DigestValue>kUytYFJvCiNv5M9aFYoFo0ruFGv8hbNS/iE8pp1cXn0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -55,7 +55,13 @@ namespace SPTR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // just for testing purpose
+            dataGridResultats.Rows.Add();
+            dataGridResultats.Rows[0].Cells[0].Value = 0;
+            for (int i = 1; i < dataGridResultats.ColumnCount; i++)
+            {
+                dataGridResultats.Rows[0].Cells[i].Value = "État P"+i+" ici";
+            }
         }
 
         private void display1_Paint(object sender, PaintEventArgs e)
@@ -84,10 +90,7 @@ namespace SPTR
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
