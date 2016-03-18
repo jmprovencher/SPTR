@@ -75,6 +75,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Com\C04.cs" />
+    <Compile Include="Com\C12.cs" />
+    <Compile Include="Com\C11.cs" />
+    <Compile Include="Com\C10.cs" />
+    <Compile Include="Com\C09.cs" />
+    <Compile Include="Com\C08.cs" />
+    <Compile Include="Com\C07.cs" />
+    <Compile Include="Com\C06.cs" />
+    <Compile Include="Com\C05.cs" />
+    <Compile Include="Com\C03.cs" />
+    <Compile Include="Com\C02.cs" />
+    <Compile Include="Com\C01.cs" />
     <Compile Include="Proc\P01.cs" />
     <Compile Include="Proc\P02.cs" />
     <Compile Include="Proc\P03.cs" />
@@ -176,6 +188,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
