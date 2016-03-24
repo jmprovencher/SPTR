@@ -24,13 +24,17 @@ namespace SPTR
             carActualDirection = VehiculeDirection.Default;
             imageRight = LoadImageWithDirection(VehiculeDirection.East);
             imageLeft = LoadImageWithDirection(VehiculeDirection.West);
-            imageRight = new Bitmap(imageRight, new Size(tailleCellule, tailleCellule));
-            imageLeft = new Bitmap(imageLeft, new Size(tailleCellule, tailleCellule));
+            imageRight = new Bitmap(imageRight);
+            imageLeft = new Bitmap(imageLeft);
+            points = new Point[3];
+            points[0] = new Point(CoordonneeXEchelle, CoordonneeYEchelle);
+            points[1] = new Point(CoordonneeXEchelle + TailleCellule, CoordonneeYEchelle);
+            points[2] = new Point(CoordonneeXEchelle, CoordonneeYEchelle + TailleCellule);
         }
 
         public override void paint(Graphics g)
         {
-            g.DrawImage(imageLeft, new Point(CoordonneeXEchelle, CoordonneeYEchelle));
+            g.DrawImage(imageLeft, points);
         }
 
        
@@ -53,6 +57,7 @@ namespace SPTR
 
         private Bitmap imageRight;
         private Bitmap imageLeft;
+        private Point[] points;
         private VehiculeDirection carActualDirection
         {
             get;
