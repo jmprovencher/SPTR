@@ -7,3 +7,5 @@ SPTR/SPTR/obj/Debug/SPTR.csproj.GenerateResource.Cache
 *.exe
 *.suo
 SPTR/.vs/SPTR/v14/.suo
+SPTR/SPTR/bin/
+SPTR/SPTR/obj/
