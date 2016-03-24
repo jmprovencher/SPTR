@@ -76,44 +76,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Execution.cs" />
-    <Compile Include="Com\C04.cs" />
-    <Compile Include="Com\C12.cs" />
-    <Compile Include="Com\C11.cs" />
-    <Compile Include="Com\C10.cs" />
-    <Compile Include="Com\C09.cs" />
-    <Compile Include="Com\C08.cs" />
-    <Compile Include="Com\C07.cs" />
-    <Compile Include="Com\C06.cs" />
-    <Compile Include="Com\C05.cs" />
-    <Compile Include="Com\C03.cs" />
-    <Compile Include="Com\C02.cs" />
-    <Compile Include="Com\C01.cs" />
-    <Compile Include="Proc\P01.cs" />
-    <Compile Include="Proc\P02.cs" />
-    <Compile Include="Proc\P03.cs" />
-    <Compile Include="Proc\P04.cs" />
-    <Compile Include="Proc\P05.cs" />
-    <Compile Include="Proc\P06.cs" />
-    <Compile Include="Proc\P07.cs" />
-    <Compile Include="Proc\P08.cs" />
-    <Compile Include="Proc\P09.cs" />
-    <Compile Include="Proc\P10.cs" />
-    <Compile Include="Proc\P11.cs" />
-    <Compile Include="Proc\P12.cs" />
-    <Compile Include="Proc\P13.cs" />
-    <Compile Include="Proc\ProcessEnum.cs" />
-    <Compile Include="Res\R01.cs" />
-    <Compile Include="Res\R02.cs" />
-    <Compile Include="Res\R03.cs" />
-    <Compile Include="Res\R04.cs" />
-    <Compile Include="Res\R05.cs" />
-    <Compile Include="Res\R06.cs" />
-    <Compile Include="Res\R07.cs" />
-    <Compile Include="Res\R08.cs" />
-    <Compile Include="Res\R09.cs" />
-    <Compile Include="Res\R10.cs" />
-    <Compile Include="Res\R11.cs" />
-    <Compile Include="Res\R12.cs" />
+    <Compile Include="Communication\C04.cs" />
+    <Compile Include="Communication\C12.cs" />
+    <Compile Include="Communication\C11.cs" />
+    <Compile Include="Communication\C10.cs" />
+    <Compile Include="Communication\C09.cs" />
+    <Compile Include="Communication\C08.cs" />
+    <Compile Include="Communication\C07.cs" />
+    <Compile Include="Communication\C06.cs" />
+    <Compile Include="Communication\C05.cs" />
+    <Compile Include="Communication\C03.cs" />
+    <Compile Include="Communication\C02.cs" />
+    <Compile Include="Communication\C01.cs" />
+    <Compile Include="Process\P01.cs" />
+    <Compile Include="Process\P02.cs" />
+    <Compile Include="Process\P03.cs" />
+    <Compile Include="Process\P04.cs" />
+    <Compile Include="Process\P05.cs" />
+    <Compile Include="Process\P06.cs" />
+    <Compile Include="Process\P07.cs" />
+    <Compile Include="Process\P08.cs" />
+    <Compile Include="Process\P09.cs" />
+    <Compile Include="Process\P10.cs" />
+    <Compile Include="Process\P11.cs" />
+    <Compile Include="Process\P12.cs" />
+    <Compile Include="Process\P13.cs" />
+    <Compile Include="Process\ProcessEnum.cs" />
+    <Compile Include="ProcessResources\R01.cs" />
+    <Compile Include="ProcessResources\R02.cs" />
+    <Compile Include="ProcessResources\R03.cs" />
+    <Compile Include="ProcessResources\R04.cs" />
+    <Compile Include="ProcessResources\R05.cs" />
+    <Compile Include="ProcessResources\R06.cs" />
+    <Compile Include="ProcessResources\R07.cs" />
+    <Compile Include="ProcessResources\R08.cs" />
+    <Compile Include="ProcessResources\R09.cs" />
+    <Compile Include="ProcessResources\R10.cs" />
+    <Compile Include="ProcessResources\R11.cs" />
+    <Compile Include="ProcessResources\R12.cs" />
     <Compile Include="À propos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,9 +175,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\small-car-symbol-icon-7578.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -189,7 +186,18 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Assets\bestCar_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\bestCar_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\car_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\car_right.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

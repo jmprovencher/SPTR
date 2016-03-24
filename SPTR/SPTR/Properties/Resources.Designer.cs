@@ -63,9 +63,39 @@ namespace SPTR.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car {
+        internal static System.Drawing.Bitmap carLeft {
             get {
-                object obj = ResourceManager.GetObject("car", resourceCulture);
+                object obj = ResourceManager.GetObject("carLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carRight {
+            get {
+                object obj = ResourceManager.GetObject("carRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap myCarLeft {
+            get {
+                object obj = ResourceManager.GetObject("myCarLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap myCarRight {
+            get {
+                object obj = ResourceManager.GetObject("myCarRight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
