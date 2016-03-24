@@ -39,3 +39,8 @@ C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\bin\Debug\SPTR.application
 C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\obj\Debug\SPTR.exe.manifest
 C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\obj\Debug\SPTR.application
 C:\Users\rem54\Google Drive\SPTR\SPTR\SPTR\SPTR\obj\Debug\SPTR.csprojResolveAssemblyReference.cache
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.AboutBox1.resources
+C:\Repos\SPTR\SPTR\SPTR\bin\Debug\SPTR.exe.manifest
+C:\Repos\SPTR\SPTR\SPTR\bin\Debug\SPTR.application
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.exe.manifest
+C:\Repos\SPTR\SPTR\SPTR\obj\Debug\SPTR.application

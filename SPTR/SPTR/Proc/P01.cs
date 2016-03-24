@@ -67,30 +67,37 @@ namespace SPTR.Proc
         public uint endConstraint
         {
             get;
+            private set;
         }
 
         public uint period
         {
             get;
+            private set;
         }
+
         public uint executionTime
         {
             get;
+            private set;
         }
 
         public uint processID
         {
             get;
+            private set;
         }
 
         public string processName
         {
             get;
+            private set;
         }
 
         public bool sporadic
         {
             get;
+            private set;
         }
         
         public static P01 Instance
@@ -100,6 +107,7 @@ namespace SPTR.Proc
                 if (instance == null)
                 {
                     instance = new P01();
+                    instance.init();
                 }
                 return instance;
             }
@@ -117,6 +125,11 @@ namespace SPTR.Proc
             period = 0;
             endConstraint = period;
             currentState = ProcessState.PROCESS_RUNNING;
+
+        }
+
+        private void init()
+        {
             /*Adding needed ressources to the list*/
             _neededRessources = new List<object>();
             _neededRessources.Add(Res.R05.Instance);
@@ -127,8 +140,8 @@ namespace SPTR.Proc
             _executionSequence.Add(C01.Instance);
             _executionSequence.Add(R08.Instance);
             _executionSequence.Add(new Execution(1));
-
         }
+
         #endregion
     }
 }
