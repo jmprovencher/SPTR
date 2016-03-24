@@ -16,6 +16,22 @@ namespace SPTR.Proc
         #region Properties
 
         private List<Object> _neededRessources;
+        private List<Object> _executionSequence;
+        private int currentSequenceIndex
+        {
+            get;
+            set;
+        }
+        public Object getNextSequence()
+        {
+            Object NextSequence = _executionSequence[currentSequenceIndex];
+            if (currentSequenceIndex++ == _executionSequence.Count())
+            {
+                currentSequenceIndex = 0;
+            }
+            return NextSequence;
+        }
+
 
         public string formatedProcessState
         {
@@ -103,6 +119,10 @@ namespace SPTR.Proc
             /*Adding needed ressources to the list*/
             _neededRessources = new List<object>();
             _neededRessources.Add(Res.R06.Instance);
+            _executionSequence = new List<object>();
+            _executionSequence.Add(C04.Instance);
+            _executionSequence.Add(R06.Instance);
+            _executionSequence.Add(C05.Instance);
         }
         #endregion
     }

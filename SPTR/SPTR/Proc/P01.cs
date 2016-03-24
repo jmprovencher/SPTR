@@ -7,7 +7,7 @@ using SPTR.Res;
 
 namespace SPTR.Proc
 {
-    class P01
+    class P01 
     {
         #region Fields
         private static P01 instance;
@@ -15,8 +15,23 @@ namespace SPTR.Proc
 
         #region Properties
 
-        private List<Object> _neededRessources;
 
+        private List<Object> _neededRessources;
+        private List<Object> _executionSequence;
+        private int currentSequenceIndex
+        {
+            get;
+            set;
+        }
+        public Object getNextSequence()
+        {
+            Object NextSequence = _executionSequence[currentSequenceIndex];
+            if (currentSequenceIndex++ == _executionSequence.Count())
+            {
+                currentSequenceIndex = 0;
+            }
+            return NextSequence;
+        }
         public string formatedProcessState
         {
             get
@@ -93,6 +108,7 @@ namespace SPTR.Proc
         #region Constructor
         private P01()
         {
+            currentSequenceIndex = 0;
             processName = "Auto-vérification";
             processID = 1;
             executionTime = 4;
@@ -105,6 +121,13 @@ namespace SPTR.Proc
             _neededRessources = new List<object>();
             _neededRessources.Add(Res.R05.Instance);
             _neededRessources.Add(Res.R08.Instance);
+            _executionSequence = new List<object>();
+            _executionSequence.Add(R05.Instance);
+            _executionSequence.Add(new Execution(1));
+            _executionSequence.Add(C01.Instance);
+            _executionSequence.Add(R08.Instance);
+            _executionSequence.Add(new Execution(1));
+
         }
         #endregion
     }

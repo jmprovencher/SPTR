@@ -14,8 +14,23 @@ namespace SPTR.Proc
         #endregion
 
         #region Properties
-
+        
         private List<Object> _neededRessources;
+        private List<Object> _executionSequence;
+        private int currentSequenceIndex
+        {
+            get;
+            set;
+        }
+        public Object getNextSequence()
+        {
+            Object NextSequence = _executionSequence[currentSequenceIndex];
+            if (currentSequenceIndex++ == _executionSequence.Count())
+            {
+                currentSequenceIndex = 0;
+            }
+            return NextSequence;
+        }
 
         public string formatedProcessState
         {
@@ -93,6 +108,7 @@ namespace SPTR.Proc
         #region Constructor
         private P12()
         {
+            currentSequenceIndex = 0;
             processName = "Suivi du chemin";
             processID = 12;
             executionTime = 4;
@@ -107,6 +123,17 @@ namespace SPTR.Proc
             _neededRessources.Add(Res.R03.Instance);
             _neededRessources.Add(Res.R04.Instance);
             _neededRessources.Add(Res.R06.Instance);
+            _executionSequence = new List<object>();
+            _executionSequence.Add(C03.Instance);
+            _executionSequence.Add(R03.Instance);
+            _executionSequence.Add(C12.Instance);
+            _executionSequence.Add(C09.Instance);
+            _executionSequence.Add(R01.Instance);
+            _executionSequence.Add(R04.Instance);
+            _executionSequence.Add(C11.Instance);
+            _executionSequence.Add(R06.Instance);
+            _executionSequence.Add(C10.Instance);
+
 
 
         }

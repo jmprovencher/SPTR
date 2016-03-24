@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Execution.cs" />
     <Compile Include="Com\C04.cs" />
     <Compile Include="Com\C12.cs" />
     <Compile Include="Com\C11.cs" />

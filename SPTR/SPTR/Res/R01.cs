@@ -9,12 +9,14 @@ namespace SPTR.Res
 {
     class R01
     {
+
         #region Fields
         private static R01 instance;
         private bool _resLocked;
         #endregion
 
         #region Properties
+
         public string resName
         {
             get;

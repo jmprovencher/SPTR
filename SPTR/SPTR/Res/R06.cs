@@ -15,6 +15,7 @@ namespace SPTR.Res
         #endregion
 
         #region Properties
+
         public string resName
         {
             get;
