@@ -65,7 +65,17 @@ namespace SPTR
                     {
                         if (GrilleSimulation.getCellule(i, j).GetType() != typeof(Asphalte))
                         {
-                            GrilleSimulation.setCellule(i,j,new Asphalte(i, j, GrilleSimulation.TailleCellules));
+                            Asphalte asphalte = new Asphalte(i, j, GrilleSimulation.TailleCellules);
+                            GrilleSimulation.setCellule(i,j,asphalte);
+                            if (i > 0 && GrilleSimulation.getCellule(i - 1, j).GetType() == typeof(Asphalte))
+                            {
+                                asphalte.addLeftRightLine();
+                            }
+
+                            if (j > 0 && GrilleSimulation.getCellule(i , j - 1).GetType() == typeof(Asphalte))
+                            {
+                                asphalte.addUpDownLine();
+                            }
                         }
                         ((Asphalte)GrilleSimulation.getCellule(i, j)).ListeRoute.Add(r);
 
