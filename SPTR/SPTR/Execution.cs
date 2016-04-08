@@ -17,7 +17,12 @@ namespace SPTR
         {
             get;
 
-            set;
+            private set;
+        }
+
+        public void run()
+        {
+            throw new NotImplementedException();
         }
     }
 }

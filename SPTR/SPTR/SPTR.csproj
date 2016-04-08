@@ -88,6 +88,8 @@
     <Compile Include="Communication\C03.cs" />
     <Compile Include="Communication\C02.cs" />
     <Compile Include="Communication\C01.cs" />
+    <Compile Include="Ordonnanceur.cs" />
+    <Compile Include="SimulationController.cs" />
     <Compile Include="Process\P01.cs" />
     <Compile Include="Process\P02.cs" />
     <Compile Include="Process\P03.cs" />

@@ -15,13 +15,12 @@ namespace SPTR
 {
     public partial class Form1 : Form
     {
-        public Simulation s;
+        public SimulationController simulationController;
 
         public Form1()
         {
             InitializeComponent();
-            s = new Simulation();// new SimulationXMLParser("sptr-scenario.xml").getSimulationFromXML();
-            //s.RemplirGrille();
+            simulationController = new SimulationController(new Simulation());
         }
 
         void initResultGrid()
@@ -44,29 +43,29 @@ namespace SPTR
 
         void updateText()
         {
-            textBoxTemp.Text = ""+s.TemperatureSimulation;
-            textBoxX.Text = "" + s.Voiture.CoordonneeX;
-            textBoxY.Text = "" + s.Voiture.CoordonneeY;
+            textBoxTemp.Text = ""+simulationController.simulation.TemperatureSimulation;
+            textBoxX.Text = "" + simulationController.simulation.Voiture.CoordonneeX;
+            textBoxY.Text = "" + simulationController.simulation.Voiture.CoordonneeY;
         }
 
         void resetParameters()
         {
-            UDAcceleration.Value = s.ParametresSimulation.Acceleration;
-            UDAutoReparation.Value = s.ParametresSimulation.AutoReparation;
-            UDCollision.Value = s.ParametresSimulation.Collision;
-            UDCommunication.Value = s.ParametresSimulation.Communication;
-            UDConsommation.Value = s.ParametresSimulation.Consommation;
-            UDEchelle.Value = s.ParametresSimulation.Echelle;
-            UDFeuJaune.Value = s.ParametresSimulation.FeuJaune;
-            UDSimulation.Value = s.ParametresSimulation.Simulation;
-            UDTemperatureMax.Value = s.ParametresSimulation.TemperatureMax;
-            UDTemperatureMIn.Value = s.ParametresSimulation.TemperatureMin;
-            UDVitesse.Value = s.ParametresSimulation.Vitesse;
-            UDXArrivee.Value = s.ParametresSimulation.XArrivee;
-            UDXDepart.Value = s.ParametresSimulation.XDepart;
-            UDYArrivee.Value = s.ParametresSimulation.YArrivee;
-            UDYDepart.Value = s.ParametresSimulation.YDepart;
-            if (s.ParametresSimulation.Strategie == "unique")
+            UDAcceleration.Value = simulationController.simulation.ParametresSimulation.Acceleration;
+            UDAutoReparation.Value = simulationController.simulation.ParametresSimulation.AutoReparation;
+            UDCollision.Value = simulationController.simulation.ParametresSimulation.Collision;
+            UDCommunication.Value = simulationController.simulation.ParametresSimulation.Communication;
+            UDConsommation.Value = simulationController.simulation.ParametresSimulation.Consommation;
+            UDEchelle.Value = simulationController.simulation.ParametresSimulation.Echelle;
+            UDFeuJaune.Value = simulationController.simulation.ParametresSimulation.FeuJaune;
+            UDSimulation.Value = simulationController.simulation.ParametresSimulation.Simulation;
+            UDTemperatureMax.Value = simulationController.simulation.ParametresSimulation.TemperatureMax;
+            UDTemperatureMIn.Value = simulationController.simulation.ParametresSimulation.TemperatureMin;
+            UDVitesse.Value = simulationController.simulation.ParametresSimulation.Vitesse;
+            UDXArrivee.Value = simulationController.simulation.ParametresSimulation.XArrivee;
+            UDXDepart.Value = simulationController.simulation.ParametresSimulation.XDepart;
+            UDYArrivee.Value = simulationController.simulation.ParametresSimulation.YArrivee;
+            UDYDepart.Value = simulationController.simulation.ParametresSimulation.YDepart;
+            if (simulationController.simulation.ParametresSimulation.Strategie == "unique")
             {
                 CBStrategie.SelectedIndex = 0;
             }
@@ -81,7 +80,7 @@ namespace SPTR
 
         private void display1_Paint(object sender, PaintEventArgs e)
         {
-            s.paint(e.Graphics);
+            simulationController.simulation.paint(e.Graphics);
 
         }
 
@@ -92,8 +91,8 @@ namespace SPTR
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string fileName= ofd.FileName;
-                s = new SimulationXMLParser(fileName).getSimulationFromXML();
-                s.RemplirGrille();
+                simulationController.simulation = new SimulationXMLParser(fileName).getSimulationFromXML();
+                simulationController.simulation.RemplirGrille();
                 display.Refresh();
                 updateText();
                 resetParameters();
@@ -127,28 +126,28 @@ namespace SPTR
 
         void updateParameters()
         {
-            s.ParametresSimulation.Acceleration = (int)UDAcceleration.Value;
-            s.ParametresSimulation.AutoReparation = (int)UDAutoReparation.Value;
-            s.ParametresSimulation.Collision = (int)UDCollision.Value;
-            s.ParametresSimulation.Communication = (int)UDCommunication.Value;
-            s.ParametresSimulation.Consommation = (int)UDConsommation.Value;
-            s.ParametresSimulation.Echelle = (int)UDEchelle.Value;
-            s.ParametresSimulation.FeuJaune = (int)UDFeuJaune.Value;
-            s.ParametresSimulation.Simulation = (int)UDSimulation.Value;
-            s.ParametresSimulation.TemperatureMax = (int)UDTemperatureMax.Value;
-            s.ParametresSimulation.TemperatureMin = (int)UDTemperatureMIn.Value;
-            s.ParametresSimulation.Vitesse = (int)UDVitesse.Value;
-            s.ParametresSimulation.XArrivee = (int)UDXArrivee.Value;
-            s.ParametresSimulation.XDepart = (int)UDXDepart.Value;
-            s.ParametresSimulation.YArrivee = (int)UDYArrivee.Value;
-            s.ParametresSimulation.YDepart = (int)UDYDepart.Value;
+            simulationController.simulation.ParametresSimulation.Acceleration = (int)UDAcceleration.Value;
+            simulationController.simulation.ParametresSimulation.AutoReparation = (int)UDAutoReparation.Value;
+            simulationController.simulation.ParametresSimulation.Collision = (int)UDCollision.Value;
+            simulationController.simulation.ParametresSimulation.Communication = (int)UDCommunication.Value;
+            simulationController.simulation.ParametresSimulation.Consommation = (int)UDConsommation.Value;
+            simulationController.simulation.ParametresSimulation.Echelle = (int)UDEchelle.Value;
+            simulationController.simulation.ParametresSimulation.FeuJaune = (int)UDFeuJaune.Value;
+            simulationController.simulation.ParametresSimulation.Simulation = (int)UDSimulation.Value;
+            simulationController.simulation.ParametresSimulation.TemperatureMax = (int)UDTemperatureMax.Value;
+            simulationController.simulation.ParametresSimulation.TemperatureMin = (int)UDTemperatureMIn.Value;
+            simulationController.simulation.ParametresSimulation.Vitesse = (int)UDVitesse.Value;
+            simulationController.simulation.ParametresSimulation.XArrivee = (int)UDXArrivee.Value;
+            simulationController.simulation.ParametresSimulation.XDepart = (int)UDXDepart.Value;
+            simulationController.simulation.ParametresSimulation.YArrivee = (int)UDYArrivee.Value;
+            simulationController.simulation.ParametresSimulation.YDepart = (int)UDYDepart.Value;
             if (CBStrategie.SelectedIndex == 0)
             {
-                s.ParametresSimulation.Strategie = "unique";
+                simulationController.simulation.ParametresSimulation.Strategie = "unique";
             }
 
-            s.Voiture.CoordonneeX = s.ParametresSimulation.XDepart;
-            s.Voiture.CoordonneeY = s.ParametresSimulation.YDepart;
+            simulationController.simulation.Voiture.CoordonneeX = simulationController.simulation.ParametresSimulation.XDepart;
+            simulationController.simulation.Voiture.CoordonneeY = simulationController.simulation.ParametresSimulation.YDepart;
             updateText();
         }
 
