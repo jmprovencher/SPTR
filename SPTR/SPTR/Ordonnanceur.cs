@@ -28,15 +28,7 @@ namespace SPTR
             processesList.Add(P13.Instance);
         }
 
-        public Process.Process getNextOrderedProcess()
-        {
-            setProcessesPriorities();
-            uint hello = processesList[0].priority;
-            SPTR.Process.Process highestPriorityProcess = getProcessWithHighestPriority();
-            return highestPriorityProcess;
-        }
-
-        private Process.Process getProcessWithHighestPriority()
+        public Process.Process getProcessWithHighestPriority()
         {
             Process.Process max = processesList[0];
             foreach (Process.Process process in processesList)
@@ -51,7 +43,7 @@ namespace SPTR
 
         private void setProcessesPriorities()
         {
-
+           //To do!
         }
 
         private List<SPTR.Process.Process> processesList;
