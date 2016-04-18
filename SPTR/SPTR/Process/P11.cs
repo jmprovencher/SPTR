@@ -7,7 +7,7 @@ using SPTR.Res;
 
 namespace SPTR.Proc
 {
-    class P11
+    class P11 : SPTR.Process.Process
     {
         #region Fields
         private static P11 instance;
@@ -51,54 +51,55 @@ namespace SPTR.Proc
                 }
             }
         }
-
+        override
         public ProcessState currentState
         {
             get;
-            set;
+            protected set;
         }
-
+        override
         public uint priority
         {
             get;
-            set;
+            protected set;
         }
-
+        override
         public uint endConstraint
         {
             get;
-            private set;
+            protected set;
         }
-
+        override
         public uint period
         {
             get;
-            private set;
+            protected set;
         }
+        override
         public uint executionTime
         {
             get;
-            private set;
+            protected set;
         }
-
+        override
         public uint processID
         {
             get;
-            private set;
+            protected set;
         }
-
+        override
         public string processName
         {
             get;
-            private set;
+            protected set;
         }
-
+        override
         public bool sporadic
         {
             get;
-            private set;
+            protected set;
         }
-        
+
         public static P11 Instance
         {
             get
@@ -119,6 +120,7 @@ namespace SPTR.Proc
             processID = 12;
             executionTime = 4;
             priority = 0;
+            period = 0;
             sporadic = true;
             endConstraint = 7;
             currentState = ProcessState.PROCESS_RUNNING;
