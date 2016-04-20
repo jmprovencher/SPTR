@@ -14,7 +14,6 @@ namespace SPTR
             xmlPath = path;
             simulation = new SimulationXMLParser(path).getSimulationFromXML();
             simulation.RemplirGrille();
-            ordonnanceur = new Ordonnanceur();
             temps = 0;
         }
         //contient tous les paramètres statiques
@@ -25,12 +24,6 @@ namespace SPTR
         }
 
         private Simulation resetCopy
-        {
-            get;
-            set;
-        }
-        //ordonne les processus (dynamique)
-        public Ordonnanceur ordonnanceur
         {
             get;
             set;

@@ -149,6 +149,7 @@ namespace SPTR
             return image;
         }
 
+
         public bool run(double vitesseEchelle)
         {
             int x_old = (int)CoordonneeX;
@@ -196,6 +197,23 @@ namespace SPTR
             get;
 
             set;
+        }
+
+        public int CoordonneeXInt
+        {
+            get
+            {
+                return (int)CoordonneeX;
+            }
+        }
+
+
+        public int CoordonneeYInt
+        {
+            get
+            {
+                return (int)CoordonneeY;
+            }
         }
 
         public int CoordonneeXEchelle

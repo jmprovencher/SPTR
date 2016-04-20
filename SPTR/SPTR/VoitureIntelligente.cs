@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    class VoitureIntelligente : Voiture
+    public class VoitureIntelligente : Voiture
     {
+
+        private double speed = 50;
+        private int targetI = 27;
+        private int targetJ = 17;
+
         public VoitureIntelligente(int x, int y, int tailleCellule, string direction) : base(x, y, tailleCellule, direction)
         {
         }
@@ -26,6 +31,69 @@ namespace SPTR
                 image = new Bitmap(global::SPTR.Properties.Resources.myCarRight);
             }
             return image;
+        }
+
+        private bool isAsphalt(Grille grille, int i, int j)
+        {
+            return grille.getCellule(i, j) is Asphalte;
+        }
+
+        private bool tryDirection(Direction newDirection, Grille grille)
+        {
+            bool success = false;
+            switch (newDirection)
+            {
+                case Direction.EST:
+                    if (isAsphalt(grille, CoordonneeXInt + 1, CoordonneeYInt)){
+                        success = true;
+                    }
+                    break;
+                case Direction.NORD: 
+                    if (isAsphalt(grille, CoordonneeXInt, CoordonneeYInt - 1)){
+                        success = true;
+                    }
+                    break;
+                case Direction.OUEST:
+                    if (isAsphalt(grille, CoordonneeXInt - 1, CoordonneeYInt)){
+                        success = true;
+                    }
+                    break;
+                case Direction.SUD:
+                    if (isAsphalt(grille, CoordonneeXInt, CoordonneeYInt + 1)){
+                        success = true;
+                    }
+                    break;
+            }
+            if(success)
+                carActualDirection = newDirection;
+
+            return success;
+        }
+
+        public double update(int temps, Grille grille)
+        {
+            bool chooseEast = targetI - CoordonneeXInt > 0;
+            bool chooseSouth = targetJ - CoordonneeYInt > 0;
+            if (chooseEast)
+            {
+                tryDirection(Direction.EST, grille);
+            }
+            else
+            {
+                tryDirection(Direction.OUEST, grille);
+            }
+
+            if (chooseSouth)
+            {
+                tryDirection(Direction.SUD, grille);
+            }
+            else
+            {
+                tryDirection(Direction.NORD, grille);
+            }
+
+            
+            return speed;
         }
     }
 }
