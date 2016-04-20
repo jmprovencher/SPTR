@@ -115,13 +115,15 @@ namespace SPTR
             }
 
             //Ajout de la voiture
-            int voitureX = ParametresSimulation.XDepart;
-            int voitureY = ParametresSimulation.YDepart;
+            int initialVoitureX = ParametresSimulation.XDepart;
+            int initialVoitureY = ParametresSimulation.YDepart;
+            int endVoitureX = ParametresSimulation.XArrivee;
+            int endVoitureY = ParametresSimulation.YArrivee;
 
-            if (GrilleSimulation.getCellule(voitureX, voitureY).GetType() == typeof(Asphalte))
+            if (GrilleSimulation.getCellule(initialVoitureX, initialVoitureY).GetType() == typeof(Asphalte))
             {
-                Asphalte start = (Asphalte)GrilleSimulation.getCellule(voitureX, voitureY);
-                MaVoiture  = new VoitureIntelligente(start.CoordonneeX, start.CoordonneeY, start.TailleCellule, "O");
+                Asphalte start = (Asphalte)GrilleSimulation.getCellule(initialVoitureX, initialVoitureY);
+                MaVoiture  = new VoitureIntelligente(start.CoordonneeX, start.CoordonneeY, start.TailleCellule, "O", endVoitureX, endVoitureY);
             }
             
         }
@@ -148,6 +150,7 @@ namespace SPTR
         {
             runParcours(temps);
             runFeux(temps);
+            
         }
 
         private void deplaceVoiture(Voiture voiture, double vitesse)

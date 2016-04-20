@@ -14,8 +14,10 @@ namespace SPTR
         private int targetI = 27;
         private int targetJ = 17;
 
-        public VoitureIntelligente(int x, int y, int tailleCellule, string direction) : base(x, y, tailleCellule, direction)
+        public VoitureIntelligente(int x, int y, int tailleCellule, string direction, int goalPointX, int goalPointY) : base(x, y, tailleCellule, direction)
         {
+            CoordonneeDeFinX = (double)goalPointX;
+            CoordonneeDeFinY = (double)goalPointY;
         }
 
 
@@ -92,8 +94,23 @@ namespace SPTR
                 tryDirection(Direction.NORD, grille);
             }
 
-            
+           
+
             return speed;
+        }
+
+        public double CoordonneeDeFinX
+        {
+            get;
+
+            set;
+        }
+
+        public double CoordonneeDeFinY
+        {
+            get;
+
+            set;
         }
     }
 }
