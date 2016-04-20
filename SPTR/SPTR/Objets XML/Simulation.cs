@@ -121,8 +121,7 @@ namespace SPTR
             if (GrilleSimulation.getCellule(voitureX, voitureY).GetType() == typeof(Asphalte))
             {
                 Asphalte start = (Asphalte)GrilleSimulation.getCellule(voitureX, voitureY);
-                Voiture voitureIntelligente = new Voiture(start.CoordonneeX, start.CoordonneeY, start.TailleCellule, "O");
-                Voiture = voitureIntelligente;
+                MaVoiture  = new Voiture(start.CoordonneeX, start.CoordonneeY, start.TailleCellule, "O");
             }
             
         }
@@ -271,9 +270,9 @@ namespace SPTR
         public void paint(Graphics e)
         {
             GrilleSimulation.paint(e);
-            if (Voiture != null)
+            if (MaVoiture != null)
             {
-                Voiture.paint(e);
+                MaVoiture.paint(e);
             }
             foreach(Parcours parcours in ListeParcours)
             {
@@ -301,6 +300,6 @@ namespace SPTR
         [XmlIgnoreAttribute]
         public Grille GrilleSimulation;
         [XmlIgnoreAttribute]
-        public Voiture Voiture;
+        public Voiture MaVoiture;
     }
 }

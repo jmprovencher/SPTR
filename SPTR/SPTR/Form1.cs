@@ -62,8 +62,8 @@ namespace SPTR
         {
             textBoxTemps.Text = "" + simulationController.temps;
             textBoxTemp.Text = ""+simulationController.simulation.TemperatureSimulation;
-            textBoxX.Text = "" + simulationController.simulation.Voiture.CoordonneeX;
-            textBoxY.Text = "" + simulationController.simulation.Voiture.CoordonneeY;
+            textBoxX.Text = "" + simulationController.simulation.MaVoiture.CoordonneeX;
+            textBoxY.Text = "" + simulationController.simulation.MaVoiture.CoordonneeY;
         }
 
         void resetParameters()
@@ -165,8 +165,8 @@ namespace SPTR
                 simulationController.simulation.ParametresSimulation.Strategie = "unique";
             }
 
-            simulationController.simulation.Voiture.CoordonneeX = simulationController.simulation.ParametresSimulation.XDepart;
-            simulationController.simulation.Voiture.CoordonneeY = simulationController.simulation.ParametresSimulation.YDepart;
+            simulationController.simulation.MaVoiture.CoordonneeX = simulationController.simulation.ParametresSimulation.XDepart;
+            simulationController.simulation.MaVoiture.CoordonneeY = simulationController.simulation.ParametresSimulation.YDepart;
             updateText();
         }
 
