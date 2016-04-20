@@ -22,7 +22,7 @@ namespace SPTR
         {
             InitializeComponent();
             simulationTimer = new Timer();
-            simulationTimer.Interval = 10;
+            setSpeedFromTrackBar();
             simulationTimer.Tick += new EventHandler(simulationTimer_Tick);
         }
 
@@ -203,6 +203,16 @@ namespace SPTR
         private void reset_Click(object sender, EventArgs e)
         {
             reset();
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            setSpeedFromTrackBar();
+        }
+
+        private void setSpeedFromTrackBar()
+        {
+            simulationTimer.Interval = (trackBar1.Maximum + 1 - trackBar1.Value) * 10;
         }
     }
     

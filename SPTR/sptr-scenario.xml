@@ -5,7 +5,7 @@
 		<Communication>1</Communication>
 		<AutoReparation>4</AutoReparation>
 		<Collision>60</Collision>
-		<Echelle>256</Echelle>
+		<Echelle>16</Echelle>
 		<XDepart>13</XDepart>
 		<YDepart>17</YDepart>
 		<XArrivee>26</XArrivee>

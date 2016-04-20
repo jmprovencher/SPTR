@@ -36,6 +36,7 @@ namespace SPTR
             points = new Point[3];
             points90 = new Point[3];
             TailleCellule = tailleCellule;
+            MovingFlag = true;
             
         }
 
@@ -168,6 +169,12 @@ namespace SPTR
                 default:
                     break;
             }
+        }
+
+        public bool MovingFlag
+        {
+            get;
+            set;
         }
 
         public double CoordonneeX

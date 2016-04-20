@@ -150,6 +150,11 @@ namespace SPTR
             runFeux(temps);
         }
 
+        private bool enFaceFeuRouge(Feu feu, Voiture voiture)
+        {
+            return feu.CouleurFeu == Couleur.Rouge && feu.Position == getDirectionOpposee(voiture.getCarDirectionString());
+        }
+
         public void runParcours(int temps)
         {
             //int count = 0;
@@ -167,18 +172,32 @@ namespace SPTR
                 {
                     //regarde si feu rouge
                     Cellule celluleDroiteDeLaVoiture = GrilleSimulation.getCelluleDroite((int)voiture.CoordonneeX, (int)voiture.CoordonneeY, voiture.getCarDirectionString());
-                    if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu) && temps%ParametresSimulation.Echelle == ParametresSimulation.Echelle - 1)
+                    if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu))
                     {
-
                         Feu feu = (Feu)celluleDroiteDeLaVoiture;
-                        
-                        if (feu.CouleurFeu == Couleur.Rouge && feu.Position == getDirectionOpposee(voiture.getCarDirectionString()))
+                        if (!voiture.MovingFlag)
                         {
-                            //Si rouge, bouge pas !
-                            continue;
+                            if (!enFaceFeuRouge(feu, voiture))
+                            {
+                                voiture.MovingFlag = true;
+                            }
                         }
+                        else if ((temps % ParametresSimulation.Echelle) == 0)
+                        {
+                            if (enFaceFeuRouge(feu, voiture))
+                            {
+                                //Si rouge, bouge pas !
+                                voiture.MovingFlag = false;
+                            }
+                        }
+
                     }
-                    //si vert ou pas de feu, avance
+
+                    if (!voiture.MovingFlag)
+                    {
+                        //si l'auto ne bouge pas, skip à la prochaine
+                        continue;
+                    }
 
                     voiture.run((double)parcours.Vitesse / (double)ParametresSimulation.Echelle);
                     //si atteint la fin, disparait
@@ -201,7 +220,7 @@ namespace SPTR
                 int tempsAjuste = temps - parcours.Phase;
                 if (tempsAjuste >= 0)
                 {
-                    if (tempsAjuste % (parcours.Periode * ParametresSimulation.Echelle)  == 0)
+                    if (tempsAjuste % (parcours.Periode)  == 0)
                     {
                         parcours.ListeVoitures.Add(new Voiture(parcours.XDebut, parcours.YDebut, GrilleSimulation.TailleCellules, ParcoursDirection));
                     }
