@@ -5,8 +5,9 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
+        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
         private System.ComponentModel.IContainer components = null;
-
+        
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -1572,7 +1573,7 @@
             this.PerformLayout();
 
         }
-
+       
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;

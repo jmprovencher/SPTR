@@ -21,6 +21,11 @@ namespace SPTR
         public Form1()
         {
             InitializeComponent();
+            string path = Directory.GetCurrentDirectory();
+            Console.WriteLine("Hello");
+            Console.WriteLine(path);
+            player.SoundLocation = "guns.wav";
+            player.Play();
             simulationTimer = new Timer();
             setSpeedFromTrackBar();
             simulationTimer.Tick += new EventHandler(simulationTimer_Tick);
