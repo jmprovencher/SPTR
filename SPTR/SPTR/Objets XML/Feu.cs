@@ -53,10 +53,15 @@ namespace SPTR
             g.DrawString(Position.ToString(), drawFont, drawBrush, drawPoint);
         }
 
+        public int getDuree(int echelleSimulation)
+        {
+            return Duree * echelleSimulation;
+        }
+
         public override int CoordonneeX { get; set; }
         public override int CoordonneeY { get; set; }
         public string Position { get; set; }
-        public int Duree { get; set; }
+        public int Duree{get;  set;  }
         public Couleur CouleurFeu{ get; set; }
 
 

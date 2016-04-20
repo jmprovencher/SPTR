@@ -230,7 +230,7 @@ namespace SPTR
                         offset = 0;
                         break;
                 }
-                int offsetTemps = temps - offset*(feu.Duree);
+                int offsetTemps = temps - offset*(feu.getDuree(ParametresSimulation.Echelle));
 
                 if (offsetTemps < 0)
                 {
@@ -239,8 +239,8 @@ namespace SPTR
 
                 if (feu.CouleurFeu == Couleur.Vert)
                 {
-                    int restant = offsetTemps % feu.Duree;
-                    if (restant == (feu.Duree-ParametresSimulation.FeuJaune))
+                    int restant = offsetTemps % feu.getDuree(ParametresSimulation.Echelle);
+                    if (restant == (feu.getDuree(ParametresSimulation.Echelle) - ParametresSimulation.FeuJaune))
                     {
                         feu.CouleurFeu = Couleur.Jaune;
                         continue;
@@ -248,7 +248,7 @@ namespace SPTR
                 }
                 else if (feu.CouleurFeu == Couleur.Jaune)
                 {
-                    int restant = offsetTemps % feu.Duree;
+                    int restant = offsetTemps % feu.getDuree(ParametresSimulation.Echelle);
                     if (restant == 0)
                     {
                         feu.CouleurFeu = Couleur.Rouge;
@@ -257,7 +257,7 @@ namespace SPTR
                 }
                 else
                 {
-                    int restant = offsetTemps % (4*feu.Duree);
+                    int restant = offsetTemps % (4 * feu.getDuree(ParametresSimulation.Echelle));
                     if (restant == 0)
                     {
                         feu.CouleurFeu = Couleur.Vert;
