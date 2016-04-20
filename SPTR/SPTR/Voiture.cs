@@ -134,7 +134,7 @@ namespace SPTR
 
        
 
-        private Bitmap LoadImageWithDirection(Direction dir)
+        virtual public Bitmap LoadImageWithDirection(Direction dir)
         {
             Bitmap image = null;
             if(dir == Direction.OUEST)
