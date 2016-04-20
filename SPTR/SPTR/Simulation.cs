@@ -167,7 +167,7 @@ namespace SPTR
                 {
                     //regarde si feu rouge
                     Cellule celluleDroiteDeLaVoiture = GrilleSimulation.getCelluleDroite((int)voiture.CoordonneeX, (int)voiture.CoordonneeY, voiture.getCarDirectionString());
-                    if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu))
+                    if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu) && temps%ParametresSimulation.Echelle == ParametresSimulation.Echelle - 1)
                     {
 
                         Feu feu = (Feu)celluleDroiteDeLaVoiture;
@@ -201,7 +201,7 @@ namespace SPTR
                 int tempsAjuste = temps - parcours.Phase;
                 if (tempsAjuste >= 0)
                 {
-                    if (tempsAjuste % parcours.Periode == 0)
+                    if (tempsAjuste % (parcours.Periode * ParametresSimulation.Echelle)  == 0)
                     {
                         parcours.ListeVoitures.Add(new Voiture(parcours.XDebut, parcours.YDebut, GrilleSimulation.TailleCellules, ParcoursDirection));
                     }
@@ -230,7 +230,7 @@ namespace SPTR
                         offset = 0;
                         break;
                 }
-                int offsetTemps = temps - offset*(feu.getDuree(ParametresSimulation.Echelle));
+                int offsetTemps = temps - offset*(feu.Duree);
 
                 if (offsetTemps < 0)
                 {
@@ -239,8 +239,8 @@ namespace SPTR
 
                 if (feu.CouleurFeu == Couleur.Vert)
                 {
-                    int restant = offsetTemps % feu.getDuree(ParametresSimulation.Echelle);
-                    if (restant == (feu.getDuree(ParametresSimulation.Echelle) - ParametresSimulation.FeuJaune))
+                    int restant = offsetTemps % feu.Duree;
+                    if (restant == (feu.Duree - ParametresSimulation.FeuJaune))
                     {
                         feu.CouleurFeu = Couleur.Jaune;
                         continue;
@@ -248,7 +248,7 @@ namespace SPTR
                 }
                 else if (feu.CouleurFeu == Couleur.Jaune)
                 {
-                    int restant = offsetTemps % feu.getDuree(ParametresSimulation.Echelle);
+                    int restant = offsetTemps % feu.Duree;
                     if (restant == 0)
                     {
                         feu.CouleurFeu = Couleur.Rouge;
@@ -257,7 +257,7 @@ namespace SPTR
                 }
                 else
                 {
-                    int restant = offsetTemps % (4 * feu.getDuree(ParametresSimulation.Echelle));
+                    int restant = offsetTemps % (4 * feu.Duree);
                     if (restant == 0)
                     {
                         feu.CouleurFeu = Couleur.Vert;
