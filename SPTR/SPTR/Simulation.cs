@@ -148,6 +148,7 @@ namespace SPTR
         {
             runParcours(temps);
             runFeux(temps);
+            
         }
 
         private bool enFaceFeuRouge(Feu feu, Voiture voiture)

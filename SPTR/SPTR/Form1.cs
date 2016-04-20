@@ -32,6 +32,7 @@ namespace SPTR
                 simulationController.run();
                 updateText();
                 display.Refresh();
+                refreshDataGrid();
              }
             else
             {
@@ -40,9 +41,27 @@ namespace SPTR
             }
         }
 
-        void initResultGrid()
+        void initDataGridResultat()
         {
             dataGridResultats.Rows.Add(0,
+                                      Proc.P01.Instance.formatedProcessState,
+                                      Proc.P02.Instance.formatedProcessState,
+                                      Proc.P03.Instance.formatedProcessState,
+                                      Proc.P04.Instance.formatedProcessState,
+                                      Proc.P05.Instance.formatedProcessState,
+                                      Proc.P06.Instance.formatedProcessState,
+                                      Proc.P07.Instance.formatedProcessState,
+                                      Proc.P08.Instance.formatedProcessState,
+                                      Proc.P09.Instance.formatedProcessState,
+                                      Proc.P10.Instance.formatedProcessState,
+                                      Proc.P11.Instance.formatedProcessState,
+                                      Proc.P12.Instance.formatedProcessState,
+                                      Proc.P13.Instance.formatedProcessState);
+        }
+
+        void refreshDataGrid()
+        {
+            dataGridResultats.Rows.Add(simulationController.temps,
                                       Proc.P01.Instance.formatedProcessState,
                                       Proc.P02.Instance.formatedProcessState,
                                       Proc.P03.Instance.formatedProcessState,
@@ -91,8 +110,6 @@ namespace SPTR
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            initResultGrid();
 
         }
 
