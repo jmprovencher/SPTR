@@ -38,12 +38,12 @@ namespace SPTR
 
         virtual public int CoordonneeXEchelle
         {
-            get { return CoordonneeX * TailleCellule; }
+            get { return (int)CoordonneeX * TailleCellule; }
         }
 
         virtual public int CoordonneeYEchelle
         {
-            get { return CoordonneeY * TailleCellule; }
+            get { return (int)CoordonneeY * TailleCellule; }
         }
 
     }

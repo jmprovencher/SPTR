@@ -16,11 +16,21 @@ namespace SPTR
     public partial class Form1 : Form
     {
         public SimulationController simulationController;
+        public Timer simulationTimer;
 
         public Form1()
         {
             InitializeComponent();
-            simulationController = new SimulationController(new Simulation());
+            simulationTimer = new Timer();
+            simulationTimer.Interval = 20;
+            simulationTimer.Tick += new EventHandler(simulationTimer_Tick);
+        }
+
+        void simulationTimer_Tick(object sender, EventArgs e)
+        {
+            simulationController.run();
+            updateText();
+            display.Refresh();
         }
 
         void initResultGrid()
@@ -43,6 +53,7 @@ namespace SPTR
 
         void updateText()
         {
+            textBoxTemps.Text = "" + simulationController.temps;
             textBoxTemp.Text = ""+simulationController.simulation.TemperatureSimulation;
             textBoxX.Text = "" + simulationController.simulation.Voiture.CoordonneeX;
             textBoxY.Text = "" + simulationController.simulation.Voiture.CoordonneeY;
@@ -80,8 +91,10 @@ namespace SPTR
 
         private void display1_Paint(object sender, PaintEventArgs e)
         {
-            simulationController.simulation.paint(e.Graphics);
-
+            if (simulationController != null)
+            {
+                simulationController.paint(e.Graphics);
+            }
         }
 
         private void ouvrirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,8 +104,7 @@ namespace SPTR
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string fileName= ofd.FileName;
-                simulationController.simulation = new SimulationXMLParser(fileName).getSimulationFromXML();
-                simulationController.simulation.RemplirGrille();
+                simulationController = new SimulationController(fileName);
                 display.Refresh();
                 updateText();
                 resetParameters();
@@ -155,7 +167,31 @@ namespace SPTR
 
         private void buttonAppliquer_Click(object sender, EventArgs e)
         {
-            updateParameters();
+            if (simulationController != null)
+            {
+                updateParameters();
+            }
+        }
+
+        private void demarrer_Click(object sender, EventArgs e)
+        {
+            if (simulationController != null)
+            {
+                simulationTimer.Enabled = !(simulationTimer.Enabled);
+            }
+        }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            if (simulationController != null)
+            {
+                simulationTimer.Enabled = false;
+                simulationController.reset();
+                updateText();
+                display.Refresh();
+                Console.WriteLine("Reseting...");
+            }
+
         }
     }
     

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SPTR
 {
@@ -21,7 +22,15 @@ namespace SPTR
             // Copy constructor to create the proper derived object from Cellule.
             Position = feu.Position;
             Duree = feu.Duree;
-            CouleurFeu = Couleur.Rouge;
+            if (Position == "E"){
+                CouleurFeu = Couleur.Vert;
+            }
+            else
+            {
+                CouleurFeu = Couleur.Rouge;
+            }
+            
+            
         }
         
         public override void paint(Graphics g)
@@ -41,7 +50,7 @@ namespace SPTR
             PointF drawPoint = new PointF(CoordonneeXEchelle, CoordonneeYEchelle);
             //Console.WriteLine("Writing: " + Position+" at:" +CoordonneeX+" , "+CoordonneeY);
             // Draw string to screen.
-            g.DrawString(Position, drawFont, drawBrush, drawPoint);
+            g.DrawString(Position.ToString(), drawFont, drawBrush, drawPoint);
         }
 
         public override int CoordonneeX { get; set; }
@@ -49,6 +58,7 @@ namespace SPTR
         public string Position { get; set; }
         public int Duree { get; set; }
         public Couleur CouleurFeu{ get; set; }
+
 
     }
 }

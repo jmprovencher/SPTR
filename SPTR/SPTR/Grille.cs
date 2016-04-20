@@ -35,6 +35,55 @@ namespace SPTR
         {
             return ListesCellules[i - OrigineX][j-OrigineY];
         }
+
+        public Cellule getCelluleDroite(int x, int y, string direction)
+        {
+            if (direction == "O")
+            {
+                if (y == 1)
+                {
+                    return null;
+                }
+                else
+                {
+                    return getCellule(x, y - 1);
+                }
+            }
+            if (direction == "E")
+            {
+                if (y == NbCellules-1)
+                {
+                    return null;
+                }
+                else
+                {
+                    return getCellule(x, y +1);
+                }
+            }
+            if (direction == "N")
+            {
+                if (x == NbCellules-1)
+                {
+                    return null;
+                }
+                else
+                {
+                    return getCellule(x+1, y);
+                }
+            }
+            if (direction == "S")
+            {
+                if (x == 1)
+                {
+                    return null;
+                }
+                else
+                {
+                    return getCellule(x-1, y);
+                }
+            }
+            return null;
+        }
         
         public void setCellule(int i, int j, Cellule c)
         {

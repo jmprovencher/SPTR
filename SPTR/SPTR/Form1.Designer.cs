@@ -136,6 +136,7 @@
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.display = new SPTR.Display();
+            this.reset = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -223,6 +224,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.reset);
             this.panel1.Controls.Add(this.textBoxTemp);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.textBoxY);
@@ -324,6 +326,7 @@
             this.demarrer.TabIndex = 0;
             this.demarrer.Text = "Démarrer";
             this.demarrer.UseVisualStyleBackColor = true;
+            this.demarrer.Click += new System.EventHandler(this.demarrer_Click);
             // 
             // tabPage2
             // 
@@ -1484,6 +1487,16 @@
             this.display.TabIndex = 1;
             this.display.Paint += new System.Windows.Forms.PaintEventHandler(this.display1_Paint);
             // 
+            // reset
+            // 
+            this.reset.Location = new System.Drawing.Point(0, 180);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(144, 23);
+            this.reset.TabIndex = 10;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1653,6 +1666,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn P11;
         private System.Windows.Forms.DataGridViewTextBoxColumn P12;
         private System.Windows.Forms.DataGridViewTextBoxColumn P13;
+        private System.Windows.Forms.Button reset;
     }
 }
 
