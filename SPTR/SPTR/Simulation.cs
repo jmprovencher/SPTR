@@ -152,14 +152,14 @@ namespace SPTR
 
         public void runParcours(int temps)
         {
-            //int count = 0;
+            int count = 0;
             foreach (Parcours parcours in ListeParcours)
             {
-                /*count++;
-                if (count != 3)
+                count++;
+                if (count != 1)
                 {
                     continue;
-                }*/
+                }
                 //mouvement des voitures
                 string ParcoursDirection = parcours.getDirection();
                 Voiture voitureTerminee = null;
@@ -167,7 +167,7 @@ namespace SPTR
                 {
                     //regarde si feu rouge
                     Cellule celluleDroiteDeLaVoiture = GrilleSimulation.getCelluleDroite((int)voiture.CoordonneeX, (int)voiture.CoordonneeY, voiture.getCarDirectionString());
-                    if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu) && temps%ParametresSimulation.Echelle == ParametresSimulation.Echelle - 1)
+                    if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu))
                     {
 
                         Feu feu = (Feu)celluleDroiteDeLaVoiture;
@@ -201,7 +201,7 @@ namespace SPTR
                 int tempsAjuste = temps - parcours.Phase;
                 if (tempsAjuste >= 0)
                 {
-                    if (tempsAjuste % (parcours.Periode * ParametresSimulation.Echelle)  == 0)
+                    if (tempsAjuste % (parcours.Periode)  == 0)
                     {
                         parcours.ListeVoitures.Add(new Voiture(parcours.XDebut, parcours.YDebut, GrilleSimulation.TailleCellules, ParcoursDirection));
                     }
