@@ -157,14 +157,10 @@ namespace SPTR
 
         public void runParcours(int temps)
         {
-            //int count = 0;
+
             foreach (Parcours parcours in ListeParcours)
             {
-                /*count++;
-                if (count != 3)
-                {
-                    continue;
-                }*/
+
                 //mouvement des voitures
                 string ParcoursDirection = parcours.getDirection();
                 Voiture voitureTerminee = null;
