@@ -17,6 +17,7 @@ namespace SPTR
     {
         public SimulationController simulationController;
         public Timer simulationTimer;
+        public bool soundPlayerIsStopped = false;
 
         public Form1()
         {
@@ -235,6 +236,23 @@ namespace SPTR
         private void setSpeedFromTrackBar()
         {
             simulationTimer.Interval = (trackBar1.Maximum + 1 - trackBar1.Value) * 10;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (soundPlayerIsStopped)
+            {
+                player.Play();
+                soundPlayerIsStopped = false;
+            }
+            else
+            {
+                player.Stop();
+                soundPlayerIsStopped = true;
+            }
+   
+            
+
         }
     }
     
