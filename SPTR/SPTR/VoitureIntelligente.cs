@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace SPTR
 {
-    class VoitureIntelligente : Voiture
+    public class VoitureIntelligente : Voiture
     {
-        public VoitureIntelligente(int x, int y, int tailleCellule, string direction) : base(x, y, tailleCellule, direction)
+        public VoitureIntelligente(int x, int y, int tailleCellule, string direction, int goalPointX, int goalPointY) : base(x, y, tailleCellule, direction)
         {
+            CoordonneeDeFinX = (double)goalPointX;
+            CoordonneeDeFinY = (double)goalPointY;
         }
 
 
@@ -26,6 +28,20 @@ namespace SPTR
                 image = new Bitmap(global::SPTR.Properties.Resources.myCarRight);
             }
             return image;
+        }
+
+        public double CoordonneeDeFinX
+        {
+            get;
+
+            set;
+        }
+
+        public double CoordonneeDeFinY
+        {
+            get;
+
+            set;
         }
     }
 }
