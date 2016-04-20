@@ -36,6 +36,7 @@ namespace SPTR
             points = new Point[3];
             points90 = new Point[3];
             TailleCellule = tailleCellule;
+            MovingFlag = true;
             
         }
 
@@ -148,9 +149,11 @@ namespace SPTR
             return image;
         }
 
-        public void run(double vitesseEchelle)
+        public bool run(double vitesseEchelle)
         {
-
+            int x_old = (int)CoordonneeX;
+            int y_old = (int)CoordonneeY;
+            bool nouvelleCellule = false;
             switch (carActualDirection)
             {
                 case Direction.NORD:
@@ -168,6 +171,17 @@ namespace SPTR
                 default:
                     break;
             }
+
+            //if (x_old != (int)CoordonneeX || y_old != (int)CoordonneeY)
+                nouvelleCellule = true;
+
+            return nouvelleCellule;
+        }
+
+        public bool MovingFlag
+        {
+            get;
+            set;
         }
 
         public double CoordonneeX

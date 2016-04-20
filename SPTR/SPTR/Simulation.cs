@@ -150,18 +150,20 @@ namespace SPTR
         {
             runParcours(temps);
             runFeux(temps);
+            
+        }
+
+        private bool enFaceFeuRouge(Feu feu, Voiture voiture)
+        {
+            return (feu.CouleurFeu == Couleur.Rouge || feu.CouleurFeu == Couleur.Rouge) && feu.Position == getDirectionOpposee(voiture.getCarDirectionString());
         }
 
         public void runParcours(int temps)
         {
-            //int count = 0;
+
             foreach (Parcours parcours in ListeParcours)
             {
-                /*count++;
-                if (count != 3)
-                {
-                    continue;
-                }*/
+
                 //mouvement des voitures
                 string ParcoursDirection = parcours.getDirection();
                 Voiture voitureTerminee = null;
@@ -169,18 +171,27 @@ namespace SPTR
                 {
                     //regarde si feu rouge
                     Cellule celluleDroiteDeLaVoiture = GrilleSimulation.getCelluleDroite((int)voiture.CoordonneeX, (int)voiture.CoordonneeY, voiture.getCarDirectionString());
+                    bool changedCell = false;
+
+                    
+                    
+
                     if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu))
                     {
-
                         Feu feu = (Feu)celluleDroiteDeLaVoiture;
                         
-                        if (feu.CouleurFeu == Couleur.Rouge && feu.Position == getDirectionOpposee(voiture.getCarDirectionString()))
+                        if (enFaceFeuRouge(feu, voiture))
                         {
                             //Si rouge, bouge pas !
+                            voiture.MovingFlag = false;
                             continue;
                         }
+                        
                     }
-                    //si vert ou pas de feu, avance
+                    else if(!voiture.MovingFlag)
+                    {
+                        voiture.MovingFlag = true;
+                    }
 
                     voiture.run((double)parcours.Vitesse / (double)ParametresSimulation.Echelle);
                     //si atteint la fin, disparait
@@ -203,7 +214,7 @@ namespace SPTR
                 int tempsAjuste = temps - parcours.Phase;
                 if (tempsAjuste >= 0)
                 {
-                    if (tempsAjuste % parcours.Periode == 0)
+                    if (tempsAjuste % (parcours.Periode)  == 0)
                     {
                         parcours.ListeVoitures.Add(new Voiture(parcours.XDebut, parcours.YDebut, GrilleSimulation.TailleCellules, ParcoursDirection));
                     }
@@ -242,7 +253,7 @@ namespace SPTR
                 if (feu.CouleurFeu == Couleur.Vert)
                 {
                     int restant = offsetTemps % feu.Duree;
-                    if (restant == (feu.Duree-ParametresSimulation.FeuJaune))
+                    if (restant == (feu.Duree - ParametresSimulation.FeuJaune))
                     {
                         feu.CouleurFeu = Couleur.Jaune;
                         continue;
@@ -259,7 +270,7 @@ namespace SPTR
                 }
                 else
                 {
-                    int restant = offsetTemps % (4*feu.Duree);
+                    int restant = offsetTemps % (4 * feu.Duree);
                     if (restant == 0)
                     {
                         feu.CouleurFeu = Couleur.Vert;

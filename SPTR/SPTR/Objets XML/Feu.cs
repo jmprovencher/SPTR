@@ -56,7 +56,7 @@ namespace SPTR
         public override int CoordonneeX { get; set; }
         public override int CoordonneeY { get; set; }
         public string Position { get; set; }
-        public int Duree { get; set; }
+        public int Duree{get;  set;  }
         public Couleur CouleurFeu{ get; set; }
 
 

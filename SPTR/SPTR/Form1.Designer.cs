@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.display = new SPTR.Display();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.resetButton = new System.Windows.Forms.Button();
             this.textBoxTemp = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -141,6 +142,7 @@
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UDTemperatureMax)).BeginInit();
@@ -235,6 +237,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.trackBar1);
             this.panel1.Controls.Add(this.resetButton);
             this.panel1.Controls.Add(this.textBoxTemp);
             this.panel1.Controls.Add(this.label5);
@@ -251,6 +254,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(144, 506);
             this.panel1.TabIndex = 2;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.trackBar1.Location = new System.Drawing.Point(19, 209);
+            this.trackBar1.Maximum = 20;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 0;
+            this.trackBar1.Value = 10;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // resetButton
             // 
@@ -1515,6 +1530,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1667,6 +1683,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn P12;
         private System.Windows.Forms.DataGridViewTextBoxColumn P13;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 
