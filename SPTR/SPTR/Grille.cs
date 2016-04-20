@@ -57,7 +57,7 @@ namespace SPTR
                 }
                 else
                 {
-                    return getCellule(x, y +1);
+                    return getCellule(x+1, y +1);
                 }
             }
             if (direction == "N")
@@ -79,7 +79,7 @@ namespace SPTR
                 }
                 else
                 {
-                    return getCellule(x-1, y);
+                    return getCellule(x-1, y+1);
                 }
             }
             return null;

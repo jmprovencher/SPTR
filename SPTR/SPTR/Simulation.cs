@@ -153,7 +153,7 @@ namespace SPTR
 
         private bool enFaceFeuRouge(Feu feu, Voiture voiture)
         {
-            return feu.CouleurFeu == Couleur.Rouge && feu.Position == getDirectionOpposee(voiture.getCarDirectionString());
+            return (feu.CouleurFeu == Couleur.Rouge || feu.CouleurFeu == Couleur.Rouge) && feu.Position == getDirectionOpposee(voiture.getCarDirectionString());
         }
 
         public void runParcours(int temps)
@@ -169,31 +169,26 @@ namespace SPTR
                 {
                     //regarde si feu rouge
                     Cellule celluleDroiteDeLaVoiture = GrilleSimulation.getCelluleDroite((int)voiture.CoordonneeX, (int)voiture.CoordonneeY, voiture.getCarDirectionString());
+                    bool changedCell = false;
+
+                    
+                    
+
                     if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu))
                     {
                         Feu feu = (Feu)celluleDroiteDeLaVoiture;
-                        if (!voiture.MovingFlag)
+                        
+                        if (enFaceFeuRouge(feu, voiture))
                         {
-                            if (!enFaceFeuRouge(feu, voiture))
-                            {
-                                voiture.MovingFlag = true;
-                            }
+                            //Si rouge, bouge pas !
+                            voiture.MovingFlag = false;
+                            continue;
                         }
-                        else if ((temps % ParametresSimulation.Echelle) == 0)
-                        {
-                            if (enFaceFeuRouge(feu, voiture))
-                            {
-                                //Si rouge, bouge pas !
-                                voiture.MovingFlag = false;
-                            }
-                        }
-
+                        
                     }
-
-                    if (!voiture.MovingFlag)
+                    else if(!voiture.MovingFlag)
                     {
-                        //si l'auto ne bouge pas, skip à la prochaine
-                        continue;
+                        voiture.MovingFlag = true;
                     }
 
                     voiture.run((double)parcours.Vitesse / (double)ParametresSimulation.Echelle);
