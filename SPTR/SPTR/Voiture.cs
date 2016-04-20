@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,52 +11,141 @@ namespace SPTR
 
     public class Voiture
     {
+        public enum Direction {EST, OUEST, NORD, SUD};
+        public int TailleCellule;
+        private Bitmap imageRight;
+        private Bitmap imageLeft;
+        private Point[] points;
+        private Point[] points90;
+
+
+        public Direction carActualDirection
+        {
+            get;
+            set;
+        }
+
         public Voiture(int x, int y, int tailleCellule, string direction)
         {
             // load le PNG ici...
             CoordonneeX = (double)x;
             CoordonneeY = (double)y;
-            carActualDirection = direction;
-            imageRight = LoadImageWithDirection("E");
-            imageLeft = LoadImageWithDirection("O");
-            imageRight = new Bitmap(imageRight);
-            imageLeft = new Bitmap(imageLeft);
+            carActualDirection = dirFromString(direction);
+            imageRight = LoadImageWithDirection(Direction.EST);
+            imageLeft = LoadImageWithDirection(Direction.OUEST);
             points = new Point[3];
+            points90 = new Point[3];
             TailleCellule = tailleCellule;
-            points[0] = new Point(CoordonneeXEchelle, CoordonneeYEchelle);
-            points[1] = new Point(CoordonneeXEchelle + TailleCellule, CoordonneeYEchelle);
-            points[2] = new Point(CoordonneeXEchelle, CoordonneeYEchelle + TailleCellule);
             
+        }
+
+        public Direction dirFromString(string dir)
+        {
+            Direction direction = Direction.EST;
+            switch (dir)
+            {
+                case "N":
+                    direction = Direction.NORD;
+                    break;
+                case "S":
+                    direction = Direction.SUD;
+                    break;
+                case "E":
+                    direction = Direction.EST;
+                    break;
+                case "O":
+                    direction = Direction.OUEST;
+                    break;
+                default:
+                    break;
+            }
+            return direction;
+        }
+
+        public string getCarDirectionString()
+        {
+            string str = null;
+            switch (carActualDirection)
+            {
+                case Direction.NORD:
+                    str = "N";
+                    break;
+                case Direction.EST:
+                    str = "E";
+                    break;
+                case Direction.SUD:
+                    str = "S";
+                    break;
+                case Direction.OUEST:
+                    str = "O";
+                    break;
+            }
+            return str;
         }
 
         public void paint(Graphics g)
         {
-            //update les points?
+            bool rotate90 = false;
+            Bitmap image = imageLeft;
+
+            updatePoints();
+
+            switch (carActualDirection)
+            {
+                case Direction.NORD:
+                    rotate90 = true;
+                    image = imageRight;
+                    break;
+                case Direction.EST:
+                    image = imageRight;
+                    break;
+                case Direction.SUD:
+                    rotate90 = true;
+                    image = imageLeft;
+                    break;
+                case Direction.OUEST:
+                    image = imageLeft;
+                    break;
+            }
+
+            if (rotate90)
+                g.DrawImage(image, points90);
+            else
+                g.DrawImage(image, points);
+
+        }
+
+        private void updatePoints()
+        {
             points[0].X = CoordonneeXEchelle;
             points[0].Y = CoordonneeYEchelle;
-            points[1].X = CoordonneeXEchelle+TailleCellule;
+            points[1].X = CoordonneeXEchelle + TailleCellule;
             points[1].Y = CoordonneeYEchelle;
             points[2].X = CoordonneeXEchelle;
             points[2].Y = CoordonneeYEchelle + TailleCellule;
-            g.DrawImage(imageLeft, points);
+
+            points90[0].X = CoordonneeXEchelle;
+            points90[0].Y = CoordonneeYEchelle + TailleCellule;
+            points90[1].X = CoordonneeXEchelle;
+            points90[1].Y = CoordonneeYEchelle;
+            points90[2].X = CoordonneeXEchelle + TailleCellule;
+            points90[2].Y = CoordonneeYEchelle + TailleCellule;
         }
 
        
 
-        private Bitmap LoadImageWithDirection(string direction)
+        private Bitmap LoadImageWithDirection(Direction dir)
         {
             Bitmap image = null;
-            if(direction == "O")
+            if(dir == Direction.OUEST)
             {
-                image = new Bitmap(global::SPTR.Properties.Resources.myCarLeft);
+                image = new Bitmap(global::SPTR.Properties.Resources.carLeft);
             }
-            else if (direction == "E")
+            else if (dir == Direction.EST)
             {
-                image = new Bitmap(global::SPTR.Properties.Resources.myCarRight);
+                image = new Bitmap(global::SPTR.Properties.Resources.carRight);
             }
-
             return image;
-
         }
 
         public void run(double vitesseEchelle)
@@ -63,17 +153,16 @@ namespace SPTR
 
             switch (carActualDirection)
             {
-                case "N":
+                case Direction.NORD:
                     CoordonneeY -= vitesseEchelle;
                     break;
-                case "S":
+                case Direction.SUD:
                     CoordonneeY += vitesseEchelle;
                     break;
-                case "E":
+                case Direction.EST:
                     CoordonneeX += vitesseEchelle;
                     break;
-                case "O":
-                    
+                case Direction.OUEST:
                     CoordonneeX -= vitesseEchelle;
                     break;
                 default:
@@ -106,15 +195,5 @@ namespace SPTR
         }
 
 
-
-        public int TailleCellule;
-        private Bitmap imageRight;
-        private Bitmap imageLeft;
-        private Point[] points;
-        public string carActualDirection
-        {
-            get;
-            set;
-        }
     }
 }

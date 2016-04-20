@@ -167,13 +167,13 @@ namespace SPTR
                 foreach (Voiture voiture in parcours.ListeVoitures)
                 {
                     //regarde si feu rouge
-                    Cellule celluleDroiteDeLaVoiture = GrilleSimulation.getCelluleDroite((int)voiture.CoordonneeX, (int)voiture.CoordonneeY, voiture.carActualDirection);
+                    Cellule celluleDroiteDeLaVoiture = GrilleSimulation.getCelluleDroite((int)voiture.CoordonneeX, (int)voiture.CoordonneeY, voiture.getCarDirectionString());
                     if (celluleDroiteDeLaVoiture.GetType() == typeof(Feu))
                     {
 
                         Feu feu = (Feu)celluleDroiteDeLaVoiture;
                         
-                        if (feu.CouleurFeu == Couleur.Rouge && feu.Position == getDirectionOpposee(voiture.carActualDirection))
+                        if (feu.CouleurFeu == Couleur.Rouge && feu.Position == getDirectionOpposee(voiture.getCarDirectionString()))
                         {
                             //Si rouge, bouge pas !
                             continue;
