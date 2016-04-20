@@ -47,21 +47,32 @@ namespace SPTR
             {
                 case Direction.EST:
                     if (isAsphalt(grille, CoordonneeXInt + 1, CoordonneeYInt)){
+                        CoordonneeX = CoordonneeXInt + 1;
+                        CoordonneeY = CoordonneeYInt;
                         success = true;
                     }
                     break;
-                case Direction.NORD: 
-                    if (isAsphalt(grille, CoordonneeXInt , CoordonneeYInt - 1)){
+                case Direction.NORD:
+                    if (isAsphalt(grille, CoordonneeXInt, CoordonneeYInt - 1))
+                    {
+                        CoordonneeX = CoordonneeXInt;
+                        CoordonneeY = CoordonneeYInt - 1;
                         success = true;
                     }
                     break;
                 case Direction.OUEST:
-                    if (isAsphalt(grille, CoordonneeXInt - 1, CoordonneeYInt)){
+                    if (isAsphalt(grille, CoordonneeXInt - 1, CoordonneeYInt))
+                    {
+                        CoordonneeX = CoordonneeXInt - 1;
+                        CoordonneeY = CoordonneeYInt;
                         success = true;
                     }
                     break;
                 case Direction.SUD:
-                    if (isAsphalt(grille, CoordonneeXInt, CoordonneeYInt + 1)){
+                    if (isAsphalt(grille, CoordonneeXInt, CoordonneeYInt + 1))
+                    {
+                        CoordonneeX = CoordonneeXInt;
+                        CoordonneeY = CoordonneeYInt + 1;
                         success = true;
                     }
                     break;
@@ -83,25 +94,25 @@ namespace SPTR
                 return speed;
             }
 
-            if (chooseEast && carActualDirection != Direction.OUEST)
+            if (chooseEast && carActualDirection != Direction.OUEST && carActualDirection != Direction.EST)
             {
                 tryDirection(Direction.EST, grille);
                 return speed;
             }
 
-            if (!chooseEast && carActualDirection != Direction.EST)
+            if (!chooseEast && carActualDirection != Direction.EST && carActualDirection != Direction.OUEST)
             {
                 tryDirection(Direction.OUEST, grille);
                 return speed;
             }
 
-            if (chooseSouth && carActualDirection != Direction.NORD)
+            if (chooseSouth && carActualDirection != Direction.NORD && carActualDirection != Direction.SUD)
             {
                 tryDirection(Direction.SUD, grille);
                 return speed;
             }
 
-            if (!chooseSouth && carActualDirection != Direction.SUD)
+            if (!chooseSouth && carActualDirection != Direction.SUD && carActualDirection != Direction.NORD)
             {
                 tryDirection(Direction.NORD, grille);
                 return speed;
