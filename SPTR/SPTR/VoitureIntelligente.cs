@@ -51,7 +51,7 @@ namespace SPTR
                     }
                     break;
                 case Direction.NORD: 
-                    if (isAsphalt(grille, CoordonneeXInt, CoordonneeYInt - 1)){
+                    if (isAsphalt(grille, CoordonneeXInt , CoordonneeYInt - 1)){
                         success = true;
                     }
                     break;
@@ -74,24 +74,37 @@ namespace SPTR
 
         public double update(int temps, Grille grille)
         {
-            bool chooseEast = targetI - CoordonneeXInt > 0;
-            bool chooseSouth = targetJ - CoordonneeYInt > 0;
-            if (chooseEast)
+            bool chooseEast = CoordonneeDeFinX - CoordonneeXInt > 0;
+            bool chooseSouth = CoordonneeDeFinY - CoordonneeYInt > 0;
+
+            if (CoordonneeXInt == (int)CoordonneeDeFinX && CoordonneeYInt == (int)CoordonneeDeFinY)
             {
-                tryDirection(Direction.EST, grille);
-            }
-            else
-            {
-                tryDirection(Direction.OUEST, grille);
+                speed = 0;
+                return speed;
             }
 
-            if (chooseSouth)
+            if (chooseEast && carActualDirection != Direction.OUEST)
+            {
+                tryDirection(Direction.EST, grille);
+                return speed;
+            }
+
+            if (!chooseEast && carActualDirection != Direction.EST)
+            {
+                tryDirection(Direction.OUEST, grille);
+                return speed;
+            }
+
+            if (chooseSouth && carActualDirection != Direction.NORD)
             {
                 tryDirection(Direction.SUD, grille);
+                return speed;
             }
-            else
+
+            if (!chooseSouth && carActualDirection != Direction.SUD)
             {
                 tryDirection(Direction.NORD, grille);
+                return speed;
             }
 
            
