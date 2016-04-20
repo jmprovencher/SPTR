@@ -31,7 +31,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.display = new SPTR.Display();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.resetButton = new System.Windows.Forms.Button();
             this.textBoxTemp = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxY = new System.Windows.Forms.TextBox();
@@ -135,8 +137,6 @@
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.àProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.display = new SPTR.Display();
-            this.reset = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -221,10 +221,21 @@
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
+            // display
+            // 
+            this.display.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.display.BackColor = System.Drawing.Color.Green;
+            this.display.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.display.Location = new System.Drawing.Point(3, 3);
+            this.display.Name = "display";
+            this.display.Size = new System.Drawing.Size(582, 506);
+            this.display.TabIndex = 1;
+            this.display.Paint += new System.Windows.Forms.PaintEventHandler(this.display1_Paint);
+            // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.reset);
+            this.panel1.Controls.Add(this.resetButton);
             this.panel1.Controls.Add(this.textBoxTemp);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.textBoxY);
@@ -240,6 +251,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(144, 506);
             this.panel1.TabIndex = 2;
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(0, 180);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(144, 23);
+            this.resetButton.TabIndex = 10;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.reset_Click);
             // 
             // textBoxTemp
             // 
@@ -1476,27 +1497,6 @@
             this.àProposToolStripMenuItem.Text = "À propos";
             this.àProposToolStripMenuItem.Click += new System.EventHandler(this.àProposToolStripMenuItem_Click);
             // 
-            // display
-            // 
-            this.display.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.display.BackColor = System.Drawing.Color.Green;
-            this.display.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.display.Location = new System.Drawing.Point(3, 3);
-            this.display.Name = "display";
-            this.display.Size = new System.Drawing.Size(582, 506);
-            this.display.TabIndex = 1;
-            this.display.Paint += new System.Windows.Forms.PaintEventHandler(this.display1_Paint);
-            // 
-            // reset
-            // 
-            this.reset.Location = new System.Drawing.Point(0, 180);
-            this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(144, 23);
-            this.reset.TabIndex = 10;
-            this.reset.Text = "Reset";
-            this.reset.UseVisualStyleBackColor = true;
-            this.reset.Click += new System.EventHandler(this.reset_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1666,7 +1666,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn P11;
         private System.Windows.Forms.DataGridViewTextBoxColumn P12;
         private System.Windows.Forms.DataGridViewTextBoxColumn P13;
-        private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.Button resetButton;
     }
 }
 

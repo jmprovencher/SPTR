@@ -22,15 +22,22 @@ namespace SPTR
         {
             InitializeComponent();
             simulationTimer = new Timer();
-            simulationTimer.Interval = 20;
+            simulationTimer.Interval = 10;
             simulationTimer.Tick += new EventHandler(simulationTimer_Tick);
         }
 
         void simulationTimer_Tick(object sender, EventArgs e)
         {
-            simulationController.run();
-            updateText();
-            display.Refresh();
+            if (simulationController.temps <= simulationController.simulation.ParametresSimulation.Simulation) { 
+                simulationController.run();
+                updateText();
+                display.Refresh();
+             }
+            else
+            {
+                simulationTimer.Enabled = false;
+                reset();
+            }
         }
 
         void initResultGrid()
@@ -181,7 +188,7 @@ namespace SPTR
             }
         }
 
-        private void reset_Click(object sender, EventArgs e)
+        private void reset()
         {
             if (simulationController != null)
             {
@@ -191,7 +198,11 @@ namespace SPTR
                 display.Refresh();
                 Console.WriteLine("Reseting...");
             }
+        }
 
+        private void reset_Click(object sender, EventArgs e)
+        {
+            reset();
         }
     }
     
