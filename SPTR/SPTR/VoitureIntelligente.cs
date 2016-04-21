@@ -10,9 +10,8 @@ namespace SPTR
     public class VoitureIntelligente : Voiture
     {
 
-        private double speed = 5;
-        private int targetI = 27;
-        private int targetJ = 17;
+        private double speed = 0;
+        private Route actualRoute;
 
         private struct AvailableDirection
         {
@@ -138,9 +137,6 @@ namespace SPTR
         {
             bool chooseEast = CoordonneeDeFinX - CoordonneeXInt > 0;
             bool chooseSouth = CoordonneeDeFinY - CoordonneeYInt > 0;
-            Random rnd = new Random();
-            speed = rnd.Next(4, 7);
-
 
             bool changeDirectionSucceed = false;
 
@@ -208,6 +204,20 @@ namespace SPTR
         {
             OldDirection = carActualDirection;
             updateAvailableDirection(grille);
+            Asphalte myActualCell = (Asphalte)grille.getCellule(CoordonneeXInt, CoordonneeYInt);
+            if (actualRoute != null && myActualCell.ListeRoute.Contains(actualRoute))
+            {
+                speed = actualRoute.Vitesse;
+            }
+            else
+            {
+                foreach (Route route in myActualCell.ListeRoute)
+                {
+                    actualRoute = route;
+                    speed = route.Vitesse;
+                    break;
+                }
+            }
 
             if (updateToMyBestDirectionIfPossible(grille))
                 return speed;
