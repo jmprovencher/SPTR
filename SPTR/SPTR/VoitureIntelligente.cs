@@ -14,10 +14,28 @@ namespace SPTR
         private int targetI = 27;
         private int targetJ = 17;
 
+        private struct AvailableDirection
+        {
+            internal static bool sud;
+            internal static bool est;
+            internal static bool ouest;
+            internal static bool nord;
+        }
+
+        private void initAvailableDirection()
+        {
+            AvailableDirection.nord = false;
+            AvailableDirection.sud = false;
+            AvailableDirection.est = false;
+            AvailableDirection.ouest = false;
+        }
+
         public VoitureIntelligente(int x, int y, int tailleCellule, string direction, int goalPointX, int goalPointY) : base(x, y, tailleCellule, direction)
         {
             CoordonneeDeFinX = (double)goalPointX;
             CoordonneeDeFinY = (double)goalPointY;
+            OldDirection = carActualDirection;
+
         }
 
 
@@ -44,7 +62,7 @@ namespace SPTR
         {
             List<Direction> list = new List<Direction>();
             Direction old = carActualDirection;
-            foreach(Direction dir in  Enum.GetValues(typeof(Direction))){
+            foreach (Direction dir in Enum.GetValues(typeof(Direction))) {
                 if (tryDirection(dir, grille))
                 {
                     list.Add(dir);
@@ -54,13 +72,21 @@ namespace SPTR
             return list;
         }
 
+        private void updateAvailableDirection(Grille grille)
+        {
+            AvailableDirection.est = isAsphalt(grille, CoordonneeXInt + 1, CoordonneeYInt);
+            AvailableDirection.nord = isAsphalt(grille, CoordonneeXInt, CoordonneeYInt - 1);
+            AvailableDirection.ouest = isAsphalt(grille, CoordonneeXInt - 1, CoordonneeYInt);
+            AvailableDirection.sud = isAsphalt(grille, CoordonneeXInt, CoordonneeYInt + 1);
+        }
+
         private bool tryDirection(Direction newDirection, Grille grille)
         {
             bool success = false;
             switch (newDirection)
             {
                 case Direction.EST:
-                    if (isAsphalt(grille, CoordonneeXInt + 1, CoordonneeYInt)){
+                    if (isAsphalt(grille, CoordonneeXInt + 1, CoordonneeYInt)) {
                         CoordonneeX = CoordonneeXInt + 1;
                         CoordonneeY = CoordonneeYInt;
                         success = true;
@@ -91,48 +117,86 @@ namespace SPTR
                     }
                     break;
             }
-            if(success)
+            if (success)
                 carActualDirection = newDirection;
 
             return success;
         }
 
-        public double update(int temps, Grille grille)
+        private bool updateToMyBestDirectionIfPossible(Grille grille)
         {
             bool chooseEast = CoordonneeDeFinX - CoordonneeXInt > 0;
             bool chooseSouth = CoordonneeDeFinY - CoordonneeYInt > 0;
 
+            bool changeDirectionSucceed = false;
+
             if (CoordonneeXInt == (int)CoordonneeDeFinX && CoordonneeYInt == (int)CoordonneeDeFinY)
             {
                 speed = 0;
-                return speed;
+                return changeDirectionSucceed;
             }
 
             if (chooseEast && carActualDirection != Direction.OUEST && carActualDirection != Direction.EST)
             {
-                tryDirection(Direction.EST, grille);
-                return speed;
+                changeDirectionSucceed = tryDirection(Direction.EST, grille); ;
             }
 
             if (!chooseEast && carActualDirection != Direction.EST && carActualDirection != Direction.OUEST)
             {
-                tryDirection(Direction.OUEST, grille);
-                return speed;
+                changeDirectionSucceed = tryDirection(Direction.OUEST, grille);
             }
 
             if (chooseSouth && carActualDirection != Direction.NORD && carActualDirection != Direction.SUD)
             {
-                tryDirection(Direction.SUD, grille);
-                return speed;
+                changeDirectionSucceed = tryDirection(Direction.SUD, grille);
             }
 
             if (!chooseSouth && carActualDirection != Direction.SUD && carActualDirection != Direction.NORD)
             {
-                tryDirection(Direction.NORD, grille);
-                return speed;
+                changeDirectionSucceed = tryDirection(Direction.NORD, grille);
             }
 
+            return changeDirectionSucceed;
+        }
+
+        private bool directionIsSameAsLastTime()
+        {
+            return OldDirection == carActualDirection;
+        }
+
+        private Direction getAValidDirection(Direction carLastDirection)
+        {
+            Direction newDirection = carLastDirection;
+            if (carLastDirection == Direction.NORD || carLastDirection == Direction.SUD)
+            {
+                if (AvailableDirection.est == true)
+                    newDirection = Direction.EST;
+                else
+                    newDirection = Direction.OUEST;
+            }
+            else if (carLastDirection == Direction.EST || carLastDirection == Direction.OUEST)
+            {
+                if (AvailableDirection.nord == true)
+                    newDirection = Direction.NORD;
+                else
+                    newDirection = Direction.SUD;
+            }
+
+            return newDirection;
+        }
+
+        public double update(int temps, Grille grille)
+        {
+            OldDirection = carActualDirection;
+            updateAvailableDirection(grille);
+
+            if (updateToMyBestDirectionIfPossible(grille))
+                return speed;
            
+            if (directionIsSameAsLastTime() && !tryDirection(carActualDirection, grille))
+            {
+                carActualDirection = getAValidDirection(carActualDirection);
+            }
 
             return speed;
         }
@@ -148,6 +212,11 @@ namespace SPTR
         {
             get;
 
+            set;
+        }
+        public Direction OldDirection
+        {
+            get;
             set;
         }
     }
