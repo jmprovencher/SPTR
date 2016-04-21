@@ -10,7 +10,7 @@ namespace SPTR
     public class VoitureIntelligente : Voiture
     {
 
-        private double speed = 50;
+        private double speed = 5;
         private int targetI = 27;
         private int targetJ = 17;
 
@@ -38,6 +38,20 @@ namespace SPTR
         private bool isAsphalt(Grille grille, int i, int j)
         {
             return grille.getCellule(i, j) is Asphalte;
+        }
+
+        private List<Direction> directionsAvailable(Grille grille)
+        {
+            List<Direction> list = new List<Direction>();
+            Direction old = carActualDirection;
+            foreach(Direction dir in  Enum.GetValues(typeof(Direction))){
+                if (tryDirection(dir, grille))
+                {
+                    list.Add(dir);
+                }
+            }
+            carActualDirection = old;
+            return list;
         }
 
         private bool tryDirection(Direction newDirection, Grille grille)
