@@ -127,6 +127,9 @@ namespace SPTR
         {
             bool chooseEast = CoordonneeDeFinX - CoordonneeXInt > 0;
             bool chooseSouth = CoordonneeDeFinY - CoordonneeYInt > 0;
+            Random rnd = new Random();
+            speed = rnd.Next(4, 7);
+
 
             bool changeDirectionSucceed = false;
 
