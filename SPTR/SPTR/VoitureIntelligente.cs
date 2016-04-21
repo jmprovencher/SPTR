@@ -83,10 +83,24 @@ namespace SPTR
         private bool tryDirection(Direction newDirection, Grille grille)
         {
             bool success = false;
-            switch (newDirection)
+            if (success=validDirection(newDirection, grille))
+                carActualDirection = newDirection;
+
+            return success;
+        }
+
+        private bool isOldDirectionStillValid(bool chooseEast, bool chooseSouth)
+        {
+            return (chooseEast == true && carActualDirection == Direction.EST) || (chooseSouth == true && carActualDirection == Direction.SUD);
+        }
+        private bool validDirection(Direction direction, Grille grille)
+        {
+            bool success = false;
+            switch (direction)
             {
                 case Direction.EST:
-                    if (isAsphalt(grille, CoordonneeXInt + 1, CoordonneeYInt)) {
+                    if (isAsphalt(grille, CoordonneeXInt + 1, CoordonneeYInt))
+                    {
                         CoordonneeX = CoordonneeXInt + 1;
                         CoordonneeY = CoordonneeYInt;
                         success = true;
@@ -117,9 +131,6 @@ namespace SPTR
                     }
                     break;
             }
-            if (success)
-                carActualDirection = newDirection;
-
             return success;
         }
 
@@ -132,6 +143,11 @@ namespace SPTR
 
 
             bool changeDirectionSucceed = false;
+
+            if (isOldDirectionStillValid(chooseEast, chooseSouth))
+            {
+                return changeDirectionSucceed;
+            }
 
             if (CoordonneeXInt == (int)CoordonneeDeFinX && CoordonneeYInt == (int)CoordonneeDeFinY)
             {
@@ -195,11 +211,6 @@ namespace SPTR
 
             if (updateToMyBestDirectionIfPossible(grille))
                 return speed;
-           
-            if (directionIsSameAsLastTime() && !tryDirection(carActualDirection, grille))
-            {
-                carActualDirection = getAValidDirection(carActualDirection);
-            }
 
             return speed;
         }
