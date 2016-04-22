@@ -203,7 +203,7 @@ namespace SPTR
         {
             get
             {
-                return (int)CoordonneeX;
+                return (int)Math.Round(CoordonneeX);
             }
         }
 
@@ -212,7 +212,7 @@ namespace SPTR
         {
             get
             {
-                return (int)CoordonneeY;
+                return (int)Math.Round(CoordonneeY);
             }
         }
 
