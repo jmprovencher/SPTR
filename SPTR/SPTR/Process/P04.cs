@@ -7,7 +7,7 @@ using SPTR.Res;
 
 namespace SPTR.Proc
 {
-    class P04 : SPTR.Process.Process
+    class P04 : SPTR.Process
     {
         #region Fields
         private static P04 instance;
@@ -56,13 +56,13 @@ namespace SPTR.Proc
         public ProcessState currentState
         {
             get;
-            protected set;
+            set;
         }
         override
         public uint priority
         {
             get;
-            protected set;
+            set;
         }
         override
         public uint endConstraint

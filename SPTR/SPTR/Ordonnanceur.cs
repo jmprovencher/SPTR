@@ -12,7 +12,7 @@ namespace SPTR
     {
         public Ordonnanceur()
         {
-            processesList = new List<SPTR.Process.Process>();
+            processesList = new List<SPTR.Process>();
             processesList.Add(P01.Instance);
             processesList.Add(P02.Instance);
             processesList.Add(P03.Instance);
@@ -26,14 +26,17 @@ namespace SPTR
             processesList.Add(P11.Instance);
             processesList.Add(P12.Instance);
             processesList.Add(P13.Instance);
+            RRprocessRunning = 1;
+            count = 3;
+            setProcessesPriorities();
         }
 
-        public Process.Process getProcessWithHighestPriority()
+        public Process getProcessWithHighestPriority()
         {
-            Process.Process max = processesList[0];
-            foreach (Process.Process process in processesList)
+            Process max = processesList[0];
+            foreach (Process process in processesList)
             {
-                if (process.priority >= max.priority)
+                if (process.priority > max.priority && process.currentState != ProcessState.PROCESS_BLOCKED)
                 {
                     max = process;
                 }
@@ -43,10 +46,63 @@ namespace SPTR
 
         private void setProcessesPriorities()
         {
-           //To do!
+            Random rnd = new Random();
+            for (int i = 0; i < processesList.Count; i++)
+            {
+                processesList[i].priority = (uint)rnd.Next(1, 9999);
+                processesList[i].currentState = ProcessState.PROCESS_ASLEEP;
+            }
+
         }
 
-        private List<SPTR.Process.Process> processesList;
+        public List<SPTR.Process> processesList;
+
+        public int count { get; set; }
+        public void priority()
+        {
+            SPTR.Process runningProcess = getProcessWithHighestPriority();
+            Console.WriteLine(runningProcess.processName+" - "+count);
+            if (count == 0)
+            {
+                Random rnd = new Random();
+                count = rnd.Next(5, 10); // creates a priority
+                runningProcess.currentState = ProcessState.PROCESS_BLOCKED;
+            }
+            else
+            {
+                foreach (Process process in processesList)
+                {
+                    if (process.currentState != ProcessState.PROCESS_BLOCKED) { 
+                        process.currentState = ProcessState.PROCESS_SUSPENDED;
+                    }
+                }
+                runningProcess.currentState = ProcessState.PROCESS_RUNNING;
+
+            }
+            count--;
+        }
+
+        int RRprocessRunning { get; set; }
+        public void roundRobin()
+        {
+            
+            for (int i = 0; i <processesList.Count ; i++)
+            {
+                if (i == RRprocessRunning-1)
+                {
+                    processesList[i].currentState = ProcessState.PROCESS_RUNNING;
+                }
+                else
+                {
+                    processesList[i].currentState = ProcessState.PROCESS_SUSPENDED;
+                }
+            }
+            RRprocessRunning++;
+            if ((RRprocessRunning-1) > 13)
+            {
+                RRprocessRunning = 1;
+            }
+        }
 
     }
 }

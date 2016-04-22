@@ -15,6 +15,7 @@ namespace SPTR
             simulation = new SimulationXMLParser(path).getSimulationFromXML();
             simulation.RemplirGrille();
             temps = 0;
+            ordonnanceur = new Ordonnanceur();
         }
         //contient tous les paramètres statiques
         public Simulation simulation
@@ -58,6 +59,12 @@ namespace SPTR
         public void paint(Graphics g)
         {
             simulation.paint(g);
+        }
+
+        public Ordonnanceur ordonnanceur
+        {
+            get;
+            set;
         }
     }
 }

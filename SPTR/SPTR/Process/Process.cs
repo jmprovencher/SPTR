@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SPTR.Proc;
 
-namespace SPTR.Process
+namespace SPTR
 {
     public abstract class Process
     {
@@ -13,13 +13,13 @@ namespace SPTR.Process
         abstract public ProcessState currentState
         {
             get;
-            protected set;
+            set;
         }
 
         abstract public uint priority
         {
             get;
-            protected set;
+            set;
         }
 
         abstract public uint endConstraint
